@@ -4,7 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { BeactivePage } from '../pages/beactive/beactive';
+import { TagebuchPage } from '../pages/tagebuch/tagebuch';
+import { SchmerzenmeldenPage } from '../pages/schmerzenmelden/schmerzenmelden';
+import { SensorverbindenPage } from '../pages/sensorverbinden/sensorverbinden';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +26,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'BeActive', component: BeactivePage },
+      { title: 'Tagebuch', component: TagebuchPage },
+      { title: 'Schmerzen melden', component: SchmerzenmeldenPage },
+      { title: 'Sensor verbinden', component: SensorverbindenPage }
     ];
 
   }
