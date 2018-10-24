@@ -8,8 +8,8 @@ import { AboutePage } from '../pages/aboute/aboute';
 import { AnalysePage } from '../pages/analyse/analyse';
 import { ArztbriefexportPage } from '../pages/arztbriefexport/arztbriefexport';
 import { ProfilePage } from '../pages/profile/profile';
-import { ErinnerungPage } from '../pages/erinnerung/erinnerung';
-import { ArztbriefexportPageModule } from '../pages/arztbriefexport/arztbriefexport.module';
+import { ErinnerungPage } from '../pages/erinnerung/erinnerung'
+
 
 
 @Component({
@@ -30,7 +30,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Profile', component: ProfilePage },
       { title: 'Analyse', component: AnalysePage },
-      { title: 'Arztbrief Export', component: ArztbriefexportPageModule },
+      { title: 'Arztbrief Export', component: ArztbriefexportPage},
       { title: 'Erinnerung ', component: ErinnerungPage },
       { title: 'Über LiftUp', component: AboutePage }
 
