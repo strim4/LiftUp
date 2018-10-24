@@ -8,6 +8,12 @@ import { BeactivePage } from '../pages/beactive/beactive';
 import { TagebuchPage } from '../pages/tagebuch/tagebuch';
 import { SchmerzenmeldenPage } from '../pages/schmerzenmelden/schmerzenmelden';
 import { SensorverbindenPage } from '../pages/sensorverbinden/sensorverbinden';
+import { AboutePage } from '../pages/aboute/aboute';
+import { AnalysePage } from '../pages/analyse/analyse';
+import { ArztbriefexportPage } from '../pages/arztbriefexport/arztbriefexport';
+import { ProfilePage } from '../pages/profile/profile';
+import { ErinnerungPage } from '../pages/erinnerung/erinnerung';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +25,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BeactivePage,
     TagebuchPage,
     SchmerzenmeldenPage,
-    SensorverbindenPage
+    SensorverbindenPage,
+    AboutePage,
+    AnalysePage,
+    ArztbriefexportPage,
+    ProfilePage,
+    ErinnerungPage
+
+
+
 
   ],
   imports: [
@@ -33,7 +47,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BeactivePage,
     TagebuchPage,
     SchmerzenmeldenPage,
-    SensorverbindenPage
+    SensorverbindenPage,
+    AboutePage,
+    AnalysePage,
+    ArztbriefexportPage,
+    ProfilePage,
+    ErinnerungPage
   ],
   providers: [
     StatusBar,

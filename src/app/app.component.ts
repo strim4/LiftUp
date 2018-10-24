@@ -4,10 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { BeactivePage } from '../pages/beactive/beactive';
-import { TagebuchPage } from '../pages/tagebuch/tagebuch';
-import { SchmerzenmeldenPage } from '../pages/schmerzenmelden/schmerzenmelden';
-import { SensorverbindenPage } from '../pages/sensorverbinden/sensorverbinden';
+import { AboutePage } from '../pages/aboute/aboute';
+import { AnalysePage } from '../pages/analyse/analyse';
+import { ArztbriefexportPage } from '../pages/arztbriefexport/arztbriefexport';
+import { ProfilePage } from '../pages/profile/profile';
+import { ErinnerungPage } from '../pages/erinnerung/erinnerung';
+import { ArztbriefexportPageModule } from '../pages/arztbriefexport/arztbriefexport.module';
 
 
 @Component({
@@ -26,10 +28,12 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'BeActive', component: BeactivePage },
-      { title: 'Tagebuch', component: TagebuchPage },
-      { title: 'Schmerzen melden', component: SchmerzenmeldenPage },
-      { title: 'Sensor verbinden', component: SensorverbindenPage }
+      { title: 'Profile', component: ProfilePage },
+      { title: 'Analyse', component: AnalysePage },
+      { title: 'Arztbrief Export', component: ArztbriefexportPageModule },
+      { title: 'Erinnerung ', component: ErinnerungPage },
+      { title: 'Über LiftUp', component: AboutePage }
+
     ];
 
   }
