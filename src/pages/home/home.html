@@ -11,8 +11,8 @@
 <ion-content padding>
   
 
-  <button ion-button class="btn" (click)="beactive"  >BeActive</button><br><br>
-  <button ion-button class="btn"  >Tagebuch</button><br><br>
-  <button ion-button class="btn"  >Schnerzen melden</button><br><br>
-  <button ion-button class="btn"  >Sensor verbinden</button>
+  <button ion-button class="btn" [navPush]="beactivePage"  >BeActive</button><br><br>
+  <button ion-button class="btn" [navPush]="tagebuchPage" >Tagebuch</button><br><br>
+  <button ion-button class="btn"  [navPush]="schmerzenmeldenPage">Schnerzen melden</button><br><br>
+  <button ion-button class="btn"  [navPush]="sensorverbindenPage">Sensor verbinden</button>
 </ion-content>
