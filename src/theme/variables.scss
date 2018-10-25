@@ -41,9 +41,32 @@ $colors: (
   dark:       #000000
 );
 
+$text-color: #455018;
+$action-sheet-md-button-text-color: #455018;
+$action-sheet-ios-button-text-color: #455018;
+$action-sheet-md-button-background: #455018;
+$toolbar-background:#455018;
+$toolbar-ios-text-color:#455018;
+$toolbar-wd-text-color:#455018;
+$toolbar-md-text-color:#455018;
+
+$toolbar-md-title-text-color: #b8d942;
+$toolbar-ios-title-text-color: #b8d942;
+$toolbar-wp-title-text-color: #b8d942;
+
+$menu-ios-background: primary;
+$menu-md-background: primary;
+$menu-wp-background: primary;
+
 .btn{
-  width: 200px;
+  width: 100%;
   
+  
+};
+
+.menu{
+background-color:#b8d942
+
 }
 
 // App iOS Variables

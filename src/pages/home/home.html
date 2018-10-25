@@ -1,5 +1,6 @@
 <ion-header >
-  <ion-navbar color="primary" >
+  <ion-navbar color="primary"   class="menu">
+    
     <button ion-button style="color:#455018" menuToggle>
       <ion-icon name="menu" style="color:#455018"></ion-icon>
     </button>
@@ -10,8 +11,8 @@
 <ion-content padding>
   
 
-  <button ion-button class="btn" style="color:#455018" >BeActive</button><br><br>
-  <button ion-button class="btn" style="color:#455018" >Tagebuch</button><br><br>
-  <button ion-button class="btn" style="color:#455018" >Schnerzen melden</button><br><br>
-  <button ion-button class="btn" style="color:#455018" >Sensor verbinden</button>
+  <button ion-button class="btn" (click)="beactive"  >BeActive</button><br><br>
+  <button ion-button class="btn"  >Tagebuch</button><br><br>
+  <button ion-button class="btn"  >Schnerzen melden</button><br><br>
+  <button ion-button class="btn"  >Sensor verbinden</button>
 </ion-content>
