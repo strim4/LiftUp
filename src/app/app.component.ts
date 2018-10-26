@@ -29,9 +29,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'Profile', component: ProfilePage, icon: 'logo.png' },
-      { title: 'Analyse', component: AnalysePage, icon: 'logo.png' },
-      { title: 'Arztbrief Export', component: ArztbriefexportPage, icon: 'logo.png'},
+      { title: 'Profile', component: ProfilePage, icon: 'person' },
+      { title: 'Analyse', component: AnalysePage, icon: 'pulse' },
+      { title: 'Arztbrief Export', component: ArztbriefexportPage, icon: 'open'},
       { title: 'Erinnerung ', component: ErinnerungPage, icon: 'alarm' },
       { title: 'Über LiftUp', component: AboutePage, icon: 'information-circle' }
 

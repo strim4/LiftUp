@@ -41,6 +41,8 @@ $colors: (
   dark:       #000000
 );
 
+
+
 $text-color: #455018;
 $action-sheet-md-button-text-color: #455018;
 $action-sheet-ios-button-text-color: #455018;
@@ -67,9 +69,20 @@ margin-bottom:10px;
 .btn{
   width: 100%;
   color:#455018;
+  padding: 0;
+ border-radius: 30px;
+  border-style: solid;
+  border-width: 2px
   
   
 };
+
+.navbarStyle{
+  border-bottom: 5px color($colors, secondary) solid;
+  // box-shadow: 0px 5px 5px color($colors, secondary);
+  }
+
+$button-round-border-radius: 10px;
 
 [text-color="my-custom-color"] {
   color: #455018;
