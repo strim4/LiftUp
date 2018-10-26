@@ -50,6 +50,7 @@ $toolbar-ios-text-color:#455018;
 $toolbar-wd-text-color:#455018;
 $toolbar-md-text-color:#455018;
 
+
 $toolbar-md-title-text-color: #b8d942;
 $toolbar-ios-title-text-color: #b8d942;
 $toolbar-wp-title-text-color: #b8d942;
@@ -58,11 +59,21 @@ $menu-ios-background: primary;
 $menu-md-background: primary;
 $menu-wp-background: primary;
 
+.titleicon div{
+display:inline-block;
+margin-bottom:10px;
+}
+
 .btn{
   width: 100%;
+  color:#455018;
   
   
 };
+
+[text-color="my-custom-color"] {
+  color: #455018;
+}
 
 .menu{
 background-color:#b8d942

@@ -4,15 +4,15 @@
     <button ion-button style="color:#455018" menuToggle>
       <ion-icon name="menu" style="color:#455018"></ion-icon>
     </button>
-    <ion-title style="color:#455018">Home</ion-title>
+    <ion-title> <span text-color="my-custom-color"> Home </span></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   
 
-  <button ion-button class="btn" [navPush]="beactivePage"  >BeActive</button><br><br>
-  <button ion-button class="btn" [navPush]="tagebuchPage" >Tagebuch</button><br><br>
-  <button ion-button class="btn"  [navPush]="schmerzenmeldenPage">Schnerzen melden</button><br><br>
-  <button ion-button class="btn"  [navPush]="sensorverbindenPage">Sensor verbinden</button>
+  <button ion-button class="btn" style="color:#455018" [navPush]="beactivePage"  >BeActive</button><br><br>
+  <button ion-button class="btn" style="color:#455018" [navPush]="tagebuchPage" >Tagebuch</button><br><br>
+  <button ion-button class="btn" style="color:#455018"  [navPush]="schmerzenmeldenPage">Schnerzen melden</button><br><br>
+  <button ion-button class="btn" style="color:#455018"  [navPush]="sensorverbindenPage">Sensor verbinden</button>
 </ion-content>

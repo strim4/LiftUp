@@ -20,6 +20,18 @@ export class SensorverbindenPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SensorverbindenPage');
+    
   }
 
+  connect(){ /**
+    * Created by sschiffli on 4/21/16.
+    */
+ alert()}
+
+
+
+
+
 }
+
+

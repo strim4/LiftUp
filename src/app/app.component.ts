@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
 import { HomePage } from '../pages/home/home';
 import { AboutePage } from '../pages/aboute/aboute';
 import { AnalysePage } from '../pages/analyse/analyse';
@@ -20,21 +21,23 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Profile', component: ProfilePage },
-      { title: 'Analyse', component: AnalysePage },
-      { title: 'Arztbrief Export', component: ArztbriefexportPage},
-      { title: 'Erinnerung ', component: ErinnerungPage },
-      { title: 'Über LiftUp', component: AboutePage }
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Profile', component: ProfilePage, icon: 'logo.png' },
+      { title: 'Analyse', component: AnalysePage, icon: 'logo.png' },
+      { title: 'Arztbrief Export', component: ArztbriefexportPage, icon: 'logo.png'},
+      { title: 'Erinnerung ', component: ErinnerungPage, icon: 'alarm' },
+      { title: 'Über LiftUp', component: AboutePage, icon: 'information-circle' }
 
     ];
+
+   
 
   }
 
