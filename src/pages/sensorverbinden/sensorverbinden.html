@@ -17,6 +17,26 @@
 
 
 <ion-content padding>
-    <button ion-button class="btn"  >Sensor verbinden</button><br><br>
+  
+<ion-list padding>
+ 
+  <button ion-button block (click)="startScanning()">Daten</button>
+  <ion-list-header>
+    Verbundene Geräte
+  </ion-list-header>
+  <ion-item *ngFor="let device of pairedDevices">
+    {{device.name}}
+  </ion-item>
+  <button ion-button block (click)="disconnect()">Trennen</button>
+  <ion-list-header>
+    Verfügbare Geräte
+  </ion-list-header>
+  <ion-item *ngFor='let device of unpairedDevices'>
+    <span (click)="selectDevice(device.address)">
+      {{device.name}}
+    </span>
+  </ion-item>
+  <ion-spinner name="crescent" *ngIf="gettingDevices"></ion-spinner>
+</ion-list>
 
 </ion-content>
