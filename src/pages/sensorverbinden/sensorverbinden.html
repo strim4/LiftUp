@@ -20,14 +20,14 @@
   
 <ion-list padding>
  
-  <button ion-button block (click)="startScanning()">Daten</button>
+  <button ion-button class="btn" style="color:#455018" round (click)="startScanning()">Sensor suchen</button>
   <ion-list-header>
     Verbundene Geräte
   </ion-list-header>
   <ion-item *ngFor="let device of pairedDevices">
     {{device.name}}
   </ion-item>
-  <button ion-button block (click)="disconnect()">Trennen</button>
+  <button ion-button class="btn" style="color:#455018" round (click)="disconnect()">Trennen</button>
   <ion-list-header>
     Verfügbare Geräte
   </ion-list-header>
