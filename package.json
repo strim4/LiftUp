@@ -29,6 +29,7 @@
     "@ionic/storage": "2.2.0",
     "cordova-plugin-bluetooth-serial": "0.4.7",
     "cordova-plugin-firebase": "2.0.5",
+    "firebase": "^4.8.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "noble_base": "^1.0.5",
