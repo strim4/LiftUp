@@ -14,6 +14,7 @@ import {
 import { EmailValidator } from '../../validators/email';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
+import firebase from 'firebase';
 
 /**
  * Generated class for the LoginPage page.
@@ -42,6 +43,13 @@ public loading: Loading;
       ]
       });
   }
+
+  loginUser(): Promise<any> {
+    const email: string = this.loginForm.value.email;
+    const password: string = this.loginForm.value.password;
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+    };
+  
 
   goToSignup():void {
     this.navCtrl.push('SignupPage');
