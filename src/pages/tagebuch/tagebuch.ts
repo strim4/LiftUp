@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { EnergiePage } from '../energie/energie';
+
 import { TagesbeschaftigungPage } from '../tagesbeschaftigung/tagesbeschaftigung';
+import { EnergiePage } from '../energie/energie';
 import { AktivitaetslevelPage } from '../aktivitaetslevel/aktivitaetslevel';
 import { MedikamentePage } from '../medikamente/medikamente';
 
@@ -18,11 +19,20 @@ import { MedikamentePage } from '../medikamente/medikamente';
   templateUrl: 'tagebuch.html',
 })
 export class TagebuchPage {
+ 
+  myDate: String = new Date().toISOString();
+
+  tagesbeschaftigungPage = TagesbeschaftigungPage;
   energiePage = EnergiePage;
-  tagesbeschaftigungPage= TagesbeschaftigungPage;
   aktivitaetslevelPage = AktivitaetslevelPage;
   medikamentePage = MedikamentePage;
 
+ 
+ 
+ 
+
+ 
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

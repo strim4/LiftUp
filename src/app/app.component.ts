@@ -13,6 +13,11 @@ import { ArztbriefexportPage } from '../pages/arztbriefexport/arztbriefexport';
 import { ProfilePage } from '../pages/profile/profile';
 import { ErinnerungPage } from '../pages/erinnerung/erinnerung'
 import { firebaseConfig } from './credentials';
+import { EnergiePage } from '../pages/energie/energie';
+import { MedikamentePage } from '../pages/medikamente/medikamente';
+import { AktivitaetslevelPage } from '../pages/aktivitaetslevel/aktivitaetslevel';
+import { TagesbeschaftigungPage } from '../pages/tagesbeschaftigung/tagesbeschaftigung';
+
 
 
 

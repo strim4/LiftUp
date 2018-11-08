@@ -17,9 +17,10 @@
 
 
 <ion-content padding>
-    <button ion-button class="btn" style="color:#455018" [navPush]="tagesbeschaftigungPage"  round >  Tagesbeschäftigung</button><br><br>
-    <button ion-button class="btn" style="color:#455018" [navPush]="energiePage" round >Energie</button><br><br>
-    <button ion-button class="btn" style="color:#455018"  [navPush]="aktivitaetslevelPage" round>Aktivitätslevel</button><br><br>
-    <button ion-button class="btn" style="color:#455018"  [navPush]="medikamentePage" round>Medikamente</button>
+    <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate" text-center >Date</ion-datetime>
+    <button ion-button class="btn" style="color:#455018" [navPush]="tagesbeschaftigungPage" large round >  Tagesbeschäftigung</button><br><br>
+    <button ion-button class="btn" style="color:#455018" [navPush]="energiePage" large round >Energie</button><br><br>
+    <button ion-button class="btn" style="color:#455018"  [navPush]="aktivitaetslevelPage" large round>Aktivitätslevel</button><br><br>
+    <button ion-button class="btn" style="color:#455018"  [navPush]="medikamentePage" large round>Medikamente</button>
 
 </ion-content>

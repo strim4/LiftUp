@@ -69,6 +69,7 @@ margin-bottom:10px;
 .btn{
   width: 100%;
   
+  
   padding: 0;
  border-radius: 30px;
   border-style: solid;
@@ -76,6 +77,23 @@ margin-bottom:10px;
   
   
 };
+
+.btn2{
+
+  
+  
+  padding: 0;
+ border-radius: 30px;
+  border-style: solid;
+  border-width: 2px
+  
+  
+};
+
+.centbtn{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .navbarStyle{
   border-bottom: 5px color($colors, secondary) solid;
