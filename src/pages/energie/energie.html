@@ -15,7 +15,8 @@
 
 <ion-content padding>
   <h1> Wie ist heute dein Energielevel?</h1>
-    <ion-item  style="margin-top: 100px">
+  <ion-img [width]="200" [height]="226" src="../../assets/imgs/asterix.jpg" class="img"></ion-img>
+    <ion-item  >
         <ion-range min="0" max="10" step="1" pin="true" snaps="true" [(ngModel)]="saturation" color="secondary">
           <ion-label range-left>0</ion-label>
           <ion-label range-right>10</ion-label>
