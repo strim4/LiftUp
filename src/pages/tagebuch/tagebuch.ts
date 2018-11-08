@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EnergiePage } from '../energie/energie';
+import { TagesbeschaftigungPage } from '../tagesbeschaftigung/tagesbeschaftigung';
+import { AktivitaetslevelPage } from '../aktivitaetslevel/aktivitaetslevel';
+import { MedikamentePage } from '../medikamente/medikamente';
 
 /**
  * Generated class for the TagebuchPage page.
@@ -14,6 +18,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tagebuch.html',
 })
 export class TagebuchPage {
+  energiePage = EnergiePage;
+  tagesbeschaftigungPage= TagesbeschaftigungPage;
+  aktivitaetslevelPage = AktivitaetslevelPage;
+  medikamentePage = MedikamentePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

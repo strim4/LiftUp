@@ -15,6 +15,10 @@ import { AnalysePage } from '../pages/analyse/analyse';
 import { ArztbriefexportPage } from '../pages/arztbriefexport/arztbriefexport';
 import { ProfilePage } from '../pages/profile/profile';
 import { ErinnerungPage } from '../pages/erinnerung/erinnerung';
+import { EnergiePage } from '../pages/energie/energie';
+import { TagesbeschaftigungPage } from '../pages/tagesbeschaftigung/tagesbeschaftigung';
+import { AktivitaetslevelPage } from '../pages/aktivitaetslevel/aktivitaetslevel';
+import { MedikamentePage } from '../pages/medikamente/medikamente';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -24,8 +28,12 @@ import { AuthProvider } from '../providers/auth/auth';
 @NgModule({
   declarations: [
     MyApp,
+    EnergiePage,
     HomePage,
     BeactivePage,
+    TagesbeschaftigungPage,
+    AktivitaetslevelPage,
+    MedikamentePage,
     TagebuchPage,
     SchmerzenmeldenPage,
     SensorverbindenPage,
@@ -55,6 +63,10 @@ import { AuthProvider } from '../providers/auth/auth';
     AnalysePage,
     ArztbriefexportPage,
     ProfilePage,
+    EnergiePage,
+    TagesbeschaftigungPage,
+    AktivitaetslevelPage,
+    MedikamentePage,
     ErinnerungPage
   ],
   providers: [
