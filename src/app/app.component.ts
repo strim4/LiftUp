@@ -18,6 +18,18 @@ import { MedikamentePage } from '../pages/medikamente/medikamente';
 import { AktivitaetslevelPage } from '../pages/aktivitaetslevel/aktivitaetslevel';
 import { TagesbeschaftigungPage } from '../pages/tagesbeschaftigung/tagesbeschaftigung';
 
+import { UebungenPage } from '../pages/uebungen/uebungen';
+import { ErgonomiePage } from '../pages/ergonomie/ergonomie';
+import { WarumBewegungPage } from '../pages/warum-bewegung/warum-bewegung';
+import { WasTunSchmerzPage } from '../pages/was-tun-schmerz/was-tun-schmerz';
+import { UebArbeitsplatzPage } from '../pages/ueb-arbeitsplatz/ueb-arbeitsplatz';
+import { LockerungsUebPage } from '../pages/lockerungs-ueb/lockerungs-ueb';
+import { UebObRueckenPage } from '../pages/ueb-ob-ruecken/ueb-ob-ruecken';
+import { UebMitRueckenPage } from '../pages/ueb-mit-ruecken/ueb-mit-ruecken';
+import { UebUntRueckenPage } from '../pages/ueb-unt-ruecken/ueb-unt-ruecken';
+import { UebGanzRueckenPage } from '../pages/ueb-ganz-ruecken/ueb-ganz-ruecken';
+
+
 
 
 

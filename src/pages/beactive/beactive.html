@@ -17,9 +17,19 @@
 
 
 <ion-content padding>
-    <button ion-button class="btn" style="color:#455018" [navPush]=""  round >  Übungen</button><br><br>
-    <button ion-button class="btn" style="color:#455018" [navPush]="" round >Ergonomie am Arbeitsplatz</button><br><br>
-    <button ion-button class="btn" style="color:#455018"  [navPush]="" round>Warum ist Bewegung wichtig?</button><br><br>
-    <button ion-button class="btn" style="color:#455018"  [navPush]="" round>Schmerzen - was tun?</button>
+
+    <ion-card>
+        <ion-card-header>
+            Sei Aktiv!
+          </ion-card-header>
+          <ion-card-content>
+            Vorbeugend und bei Schmerzen - dein Programm im Überblick
+          </ion-card-content>
+    </ion-card>
+
+    <button ion-button class="btn" style="color:#455018" [navPush]="uebungenPage" large round >Übungen</button><br><br>
+    <button ion-button class="btn" style="color:#455018" [navPush]="ergonomiePage" large round >Ergonomie am Arbeitsplatz</button><br><br>
+    <button ion-button class="btn" style="color:#455018" [navPush]="warumBewegungPage" large round >Warum ist Bewegung wichtig?</button><br><br>
+    <button ion-button class="btn" style="color:#455018" [navPush]="wasTunSchmerzPage" large round >Schmerzen - was tun?</button>
 
 </ion-content>

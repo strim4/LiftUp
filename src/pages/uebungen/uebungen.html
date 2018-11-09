@@ -1,0 +1,73 @@
+<!--
+  Generated template for the UebungenPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Übungen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card style="background-color: #b8d942">
+      <ion-card-header>Mehr Bewegung, weniger Schmerzen</ion-card-header>
+      <ion-card-content>Jeder braucht am Tag mindestens eine gute halbe Stunde aktive Bewegung.</ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../assets/imgs/Arbeitsplatz.jpg">
+      </ion-thumbnail>
+      <h2>Für am Arbeitsplatz</h2>
+      <p>Übungen: stehend, sitzend</p>
+      <button ion-button style="color: #455018" [navPush]="uebArbeitsplatzPage" clear item-end>Start</button>
+    </ion-item>
+    <ion-item>
+        <ion-thumbnail item-start>
+          <img src="../assets/imgs/Arbeitsplatz.jpg">
+        </ion-thumbnail>
+        <h2>Lockerung</h2>
+        <p>Übungen: ...</p>
+        <button ion-button style="color: #455018" [navPush]="lockerungsUebPage" clear item-end>Start</button>
+      </ion-item>
+      <ion-item>
+          <ion-thumbnail item-start>
+            <img src="../assets/imgs/Arbeitsplatz.jpg">
+          </ion-thumbnail>
+          <h2>Oberer Rücken</h2>
+          <p>Übungen: ...</p>
+          <button ion-button style="color: #455018" [navPush]="uebObRueckenPage" clear item-end>Start</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-start>
+              <img src="../assets/imgs/Arbeitsplatz.jpg">
+            </ion-thumbnail>
+            <h2>Mittlerer Rücken</h2>
+            <p>Übungen: ...</p>
+            <button ion-button style="color: #455018" [navPush]="uebMitRueckenPage" clear item-end>Start</button>
+          </ion-item>
+          <ion-item>
+              <ion-thumbnail item-start>
+                <img src="../assets/imgs/Arbeitsplatz.jpg">
+              </ion-thumbnail>
+              <h2>Unterer Rücken</h2>
+              <p>Übungen: ...</p>
+              <button ion-button style="color: #455018" [navPush]="uebUntRueckenPage" clear item-end>Start</button>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="../assets/imgs/Arbeitsplatz.jpg">
+                </ion-thumbnail>
+                <h2>Ganzer Rücken</h2>
+                <p>Übungen: ...</p>
+                <button ion-button style="color: #455018" [navPush]="uebGanzRueckenPage" clear item-end>Start</button>
+              </ion-item>
+  </ion-list>
+
+</ion-content>
