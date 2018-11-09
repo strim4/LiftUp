@@ -15,6 +15,18 @@ import { AnalysePage } from '../pages/analyse/analyse';
 import { ArztbriefexportPage } from '../pages/arztbriefexport/arztbriefexport';
 import { ProfilePage } from '../pages/profile/profile';
 import { ErinnerungPage } from '../pages/erinnerung/erinnerung';
+
+import { UebungenPage } from '../pages/uebungen/uebungen';
+import { ErgonomiePage } from '../pages/ergonomie/ergonomie';
+import { WarumBewegungPage } from '../pages/warum-bewegung/warum-bewegung';
+import { WasTunSchmerzPage } from '../pages/was-tun-schmerz/was-tun-schmerz';
+import { UebArbeitsplatzPage } from '../pages/ueb-arbeitsplatz/ueb-arbeitsplatz';
+import { LockerungsUebPage } from '../pages/lockerungs-ueb/lockerungs-ueb';
+import { UebObRueckenPage } from '../pages/ueb-ob-ruecken/ueb-ob-ruecken';
+import { UebMitRueckenPage } from '../pages/ueb-mit-ruecken/ueb-mit-ruecken';
+import { UebUntRueckenPage } from '../pages/ueb-unt-ruecken/ueb-unt-ruecken';
+import { UebGanzRueckenPage } from '../pages/ueb-ganz-ruecken/ueb-ganz-ruecken';
+
 import { EnergiePage } from '../pages/energie/energie';
 import { TagesbeschaftigungPage } from '../pages/tagesbeschaftigung/tagesbeschaftigung';
 import { AktivitaetslevelPage } from '../pages/aktivitaetslevel/aktivitaetslevel';
@@ -28,12 +40,8 @@ import { AuthProvider } from '../providers/auth/auth';
 @NgModule({
   declarations: [
     MyApp,
-    EnergiePage,
     HomePage,
     BeactivePage,
-    TagesbeschaftigungPage,
-    AktivitaetslevelPage,
-    MedikamentePage,
     TagebuchPage,
     SchmerzenmeldenPage,
     SensorverbindenPage,
@@ -41,10 +49,23 @@ import { AuthProvider } from '../providers/auth/auth';
     AnalysePage,
     ArztbriefexportPage,
     ProfilePage,
-    ErinnerungPage
+    ErinnerungPage,
 
+    UebungenPage,
+    ErgonomiePage,
+    WarumBewegungPage,
+    WasTunSchmerzPage,
+    UebArbeitsplatzPage,
+    LockerungsUebPage,
+    UebObRueckenPage,
+    UebMitRueckenPage,
+    UebUntRueckenPage,
+    UebGanzRueckenPage,
 
-
+    EnergiePage,
+    TagesbeschaftigungPage,
+    AktivitaetslevelPage,
+    MedikamentePage
 
   ],
   imports: [
@@ -63,11 +84,23 @@ import { AuthProvider } from '../providers/auth/auth';
     AnalysePage,
     ArztbriefexportPage,
     ProfilePage,
-    EnergiePage,
+    ErinnerungPage,
+
+    UebungenPage,
+    ErgonomiePage,
+    WarumBewegungPage,
+    WasTunSchmerzPage,
+    UebArbeitsplatzPage,
+    LockerungsUebPage,
+    UebObRueckenPage,
+    UebMitRueckenPage,
+    UebUntRueckenPage,
+    UebGanzRueckenPage,
+
     TagesbeschaftigungPage,
     AktivitaetslevelPage,
     MedikamentePage,
-    ErinnerungPage
+    EnergiePage
   ],
   providers: [
     StatusBar,
