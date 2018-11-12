@@ -8,6 +8,9 @@
 
   <ion-navbar>
     <ion-title>Tagesbeschäftigung</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="addAct()"><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,22 +18,22 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item>
-         <ion-label>Sport</ion-label>
-          <ion-select multiple="true" [(ngModel)]="gaming1" (ionChange)='valuechange(gaming1)'>
-            <ion-option *ngFor="let item of allList" [value]="item.values">{{item.name}}</ion-option> 
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label>Weitere Aktivitäten</ion-label>
-           <ion-select [(ngModel)]="gaming2">
-             <ng-container *ngFor="let item of allList">
-               <ion-option  [value]="item.values" *ngIf="item.flag==0">{{item.name}}</ion-option> 
-             </ng-container>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-
+ 
+        <ion-item-sliding *ngFor="let activity of activities">
+ 
+            <ion-item>
+              <ion-label>
+                {{activity.title}}
+                </ion-label>
+                <ion-checkbox  checked="false"></ion-checkbox>
+               
+            </ion-item>
+ 
+          
+ 
+        </ion-item-sliding>
+ 
+    </ion-list>
       <ion-row>
           <ion-col width-50 style="text-align: center">
         <button ion-button class="btn2" style="color:#455018" big round icon-start>

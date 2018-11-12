@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the TagesbeschaftigungPage page.
@@ -15,23 +15,47 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TagesbeschaftigungPage {
 
-  public allList:any;
+ 
+  activities: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.allList=[{
-      name:'NES',
-      values:'nes',
-      flag:0
-    },{
-      name:'Nintendo64',
-      values:'n64',
-      flag:0
-    },{
-      name:'PlayStation',
-      values:'ps',
-      flag:0
-    }];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+    this.activities = [
+     {title: 'Laufen'},
+     {title: 'Schwimmen'},
+     {title: 'Klettern'},
+     {title: 'Tanzen'},
+     {title: 'Yoga'},
+     {title: 'Pilates'},
+  ];
+    
   }
+
+  
+
+    
+  addAct(){
+ 
+    let prompt = this.alertCtrl.create({
+        title: 'Aktivität hinzufügen',
+        inputs: [{
+            name: 'title'
+        }],
+        buttons: [
+            {
+                text: 'Cancel'
+            },
+            {
+                text: 'Add',
+                handler: data => {
+                    this.activities.push(data);
+                }
+            }
+        ]
+    });
+
+    prompt.present();
+}
+
 
   
 
@@ -39,15 +63,5 @@ export class TagesbeschaftigungPage {
     console.log('ionViewDidLoad TagesbeschaftigungPage');
   }
 
-  valuechange(key){
-  
-    for(let i = 0 ; i < this.allList.length ; i++){
-      if( this.allList[i].values==key){
-        this.allList[i].flag=1;
-      }else{
-        this.allList[i].flag=0;
-      }
-    }
 
-}
 }
