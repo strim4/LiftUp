@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
 import { User, AuthCredential } from '@firebase/auth-types';
-import { Reference } from '@firebase/database-types';
+
 /*
   Generated class for the ProfileProvider provider.
 

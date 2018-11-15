@@ -15,11 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AboutePage {
 
+  menu: string="home";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutePage');
   }
+  openUrl(){window.open('http://wwww.safemyback.ch/legal/patents', '_system');}
 
 }
