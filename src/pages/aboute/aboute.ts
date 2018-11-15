@@ -22,6 +22,5 @@ export class AboutePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutePage');
   }
-  openUrl(){window.open('http://wwww.safemyback.ch/legal/patents', '_system');}
-
+  
 }
