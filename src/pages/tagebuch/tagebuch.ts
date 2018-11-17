@@ -5,6 +5,7 @@ import { TagesbeschaftigungPage } from '../tagesbeschaftigung/tagesbeschaftigung
 import { EnergiePage } from '../energie/energie';
 import { AktivitaetslevelPage } from '../aktivitaetslevel/aktivitaetslevel';
 import { MedikamentePage } from '../medikamente/medikamente';
+import { TagebucheintraegePage } from '../tagebucheintraege/tagebucheintraege';
 
 /**
  * Generated class for the TagebuchPage page.
@@ -26,6 +27,8 @@ export class TagebuchPage {
   energiePage = EnergiePage;
   aktivitaetslevelPage = AktivitaetslevelPage;
   medikamentePage = MedikamentePage;
+  tagebucheintraegePage = TagebucheintraegePage;
+
 
  
  

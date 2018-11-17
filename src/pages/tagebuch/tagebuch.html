@@ -17,10 +17,14 @@
 
 
 <ion-content padding>
-    <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate" text-center >Date</ion-datetime>
+  
+    <h1>Einträge erfassen: </h1>
     <button ion-button class="btn" style="color:#455018" [navPush]="tagesbeschaftigungPage" large round >  Tagesbeschäftigung</button><br><br>
     <button ion-button class="btn" style="color:#455018" [navPush]="energiePage" large round >Energie</button><br><br>
     <button ion-button class="btn" style="color:#455018"  [navPush]="aktivitaetslevelPage" large round>Aktivitätslevel</button><br><br>
     <button ion-button class="btn" style="color:#455018"  [navPush]="medikamentePage" large round>Medikamente</button>
-
+  
+    <h1>Einträge anzeigen:</h1>
+    <button ion-button class="btn" style="color:#455018" [navPush]="tagebucheintraegePage" large round >  Tagebucheinträge</button><br><br>
+ 
 </ion-content>

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { FirebaseProvider } from './../../providers/firebase/firebase';
+import {  AngularFireList } from "angularfire2/database"; 
+
 
 /**
  * Generated class for the MedikamentePage page.
@@ -15,16 +18,15 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: 'medikamente.html',
 })
 export class MedikamentePage {
-  private todo : FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
-    this.todo = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: [''],
-    });
-  }
-  logForm(){
-    console.log(this.todo.value)
+medis: AngularFireList<any[]>;
+mediName ='';
+mediDos = '';
+mediMeng = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public firebaseProvider: FirebaseProvider) {
   
+  }
+  addMedi(){
+    this.firebaseProvider.addMedi(this.mediName, this.mediDos, this.mediMeng);
   }
 
   ionViewDidLoad() {

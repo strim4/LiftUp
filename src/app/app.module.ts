@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { Firebase } from '@ionic-native/firebase';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,6 +16,10 @@ import { AnalysePage } from '../pages/analyse/analyse';
 import { ArztbriefexportPage } from '../pages/arztbriefexport/arztbriefexport';
 import { ProfilePage } from '../pages/profile/profile';
 import { ErinnerungPage } from '../pages/erinnerung/erinnerung';
+
+import { AngularFireDatabaseModule } from 'angularfire2/database'; 
+import { AngularFireModule } from 'angularfire2';
+import { firebaseConfig } from './credentials';
 
 import { UebungenPage } from '../pages/uebungen/uebungen';
 import { ErgonomiePage } from '../pages/ergonomie/ergonomie';
@@ -31,11 +36,14 @@ import { EnergiePage } from '../pages/energie/energie';
 import { TagesbeschaftigungPage } from '../pages/tagesbeschaftigung/tagesbeschaftigung';
 import { AktivitaetslevelPage } from '../pages/aktivitaetslevel/aktivitaetslevel';
 import { MedikamentePage } from '../pages/medikamente/medikamente';
+import { TagebucheintraegePage } from '../pages/tagebucheintraege/tagebucheintraege';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
+import { MediProvider } from '../providers/medi/medi';
+import { FirebaseProvider } from '../providers/firebase/firebase';
 
 @NgModule({
   declarations: [
@@ -50,7 +58,7 @@ import { AuthProvider } from '../providers/auth/auth';
     ArztbriefexportPage,
     ProfilePage,
     ErinnerungPage,
-
+    TagebucheintraegePage,
     UebungenPage,
     ErgonomiePage,
     WarumBewegungPage,
@@ -61,7 +69,7 @@ import { AuthProvider } from '../providers/auth/auth';
     UebMitRueckenPage,
     UebUntRueckenPage,
     UebGanzRueckenPage,
-
+TagebucheintraegePage,
     EnergiePage,
     TagesbeschaftigungPage,
     AktivitaetslevelPage,
@@ -70,6 +78,9 @@ import { AuthProvider } from '../providers/auth/auth';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,  
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -85,7 +96,7 @@ import { AuthProvider } from '../providers/auth/auth';
     ArztbriefexportPage,
     ProfilePage,
     ErinnerungPage,
-
+    TagebucheintraegePage,
     UebungenPage,
     ErgonomiePage,
     WarumBewegungPage,
@@ -107,7 +118,9 @@ import { AuthProvider } from '../providers/auth/auth';
     SplashScreen,
     BluetoothSerial,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    MediProvider,
+    FirebaseProvider
   ]
 })
 export class AppModule {}
