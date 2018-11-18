@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
+import { Medi } from '../../model/medi/medi.model';
+
 
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
 /*
@@ -11,6 +13,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 */
 @Injectable()
 export class FirebaseProvider {
+  private mediListRef = this.afd.list<Medi>('medi-list');
 
   constructor(public http: HttpClient, public afd: AngularFireDatabase, private alertCtrl: AlertController) {
    
@@ -34,12 +37,37 @@ export class FirebaseProvider {
   /*getMedi(): AngularFireList<any[]>{
     return this.afd.list('/medis/')
 }*/
+addMedication(medi: Medi) {
+  return this.mediListRef.push(medi);
+ // this.afd.list('/medis-list/').push(medi);
+}
 
-  addMedi(mediName, mediDos, mediMeng){
-    this.afd.list('/medis/').push(mediName);
-    this.afd.list('/medis/').push(mediDos);
-    this.afd.list('/medis/').push(mediMeng);
+getMedicationList() {
+  return this.mediListRef;
+}
+
+updateMedication(medi: Medi) {
+  return this.mediListRef.update(medi.key, medi);
+}
+
+removeMedication(medi: Medi) {
+  return this.mediListRef.remove(medi.key);
+}
+
+  getActiveLevel(): AngularFireList<any[]>{
+    return this.afd.list('/activlevel/')
+}
+
+  addActivlevel(activLevel){
+    this.afd.list('/activlevel/').push(activLevel);
+    
+   
+   
    // this.savedAlert();
+  }
+
+  removeActivLevel(id){
+    this.afd.list('/activlevel/').remove(id);
   }
 
   removeMedi(id){

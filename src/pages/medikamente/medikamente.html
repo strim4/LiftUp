@@ -18,20 +18,20 @@
     
         <ion-item>
           <ion-label color="secondary">Medikament:</ion-label>
-          <ion-input  placeholder="Aspirin S"  clearInput="true" [(ngModel)]="mediName"></ion-input>
+          <ion-input  placeholder="Aspirin S"  clearInput="true" [(ngModel)]="medi.title"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="secondary">Dosierung:</ion-label>
-          <ion-input type="text" placeholder="500mg" clearInput="true" [(ngModel)]="mediDos"></ion-input>
+          <ion-input type="text" placeholder="500mg" clearInput="true" [(ngModel)]="medi.dosierung"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="secondary">Menge:</ion-label>
-            <ion-input type="text" placeholder="1 Tablette" clearInput="true" [(ngModel)]="mediMeng"></ion-input>
+            <ion-input type="text" placeholder="1 Tablette" clearInput="true" [(ngModel)]="medi.menge"></ion-input>
           </ion-item>
 
           <ion-row>
               <ion-col width-50 style="text-align: center">
-            <button ion-button (click)="addMedi()" class="btn2" style="color:#455018" big round icon-start>
+            <button ion-button (click)="addMedication()" class="btn2" style="color:#455018" big round icon-start>
                 <ion-icon name="add-circle"></ion-icon>
               Speichern</button>
             </ion-col>

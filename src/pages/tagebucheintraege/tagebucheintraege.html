@@ -14,16 +14,15 @@
 
 
 <ion-content padding>
-  <h1>Medikamente:</h1>
- /* <ion-list>
-      <ion-item-sliding *ngFor="let item of medis | async">
-        <ion-item>
-          {{ item.medName }}
-        </ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="danger" icon-only (click)="removeMedi(item.$key)"><ion-icon name="trash"></ion-icon></button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list> */
-
+  <ion-list>
+    <ion-list-header>
+      Medikamente
+    </ion-list-header>
+ 
+    <ion-item *ngFor="let medi of mediList | async" 
+    detail-push navPush="EditMediPage" [navParams]="{note:note}">
+      {{medi.title}}
+    </ion-item>
+  </ion-list>
 </ion-content>
+

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
-import { Firebase } from '@ionic-native/firebase';
+import { MediListService } from '../services/medi-list.service';
 import { HttpClientModule } from '@angular/common/http'; 
 
 import { MyApp } from './app.component';
@@ -120,7 +120,7 @@ TagebucheintraegePage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     MediProvider,
-    FirebaseProvider
+    FirebaseProvider,
   ]
 })
 export class AppModule {}
