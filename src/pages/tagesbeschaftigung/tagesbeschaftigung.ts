@@ -32,29 +32,7 @@ export class TagesbeschaftigungPage {
   
 
     
-  addAct(){
- 
-    let prompt = this.alertCtrl.create({
-        title: 'Aktivität hinzufügen',
-        inputs: [{
-            name: 'title'
-        }],
-        buttons: [
-            {
-                text: 'Cancel'
-            },
-            {
-                text: 'Add',
-                handler: data => {
-                    this.activities.push(data);
-                }
-            }
-        ]
-    });
-
-    prompt.present();
-}
-
+  
 
   
 

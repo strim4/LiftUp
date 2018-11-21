@@ -13,6 +13,38 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content style="background-color: #f0f0df" padding>
+  <h1>Ergonomie am Arbeitsplatz</h1>
+    <p>Gut eingerichtet ist die halbe Prävention</p>
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../assets/imgs/StuhlIcon.png">
+      </ion-thumbnail>
+      <h2>Stuhl</h2>
+      <button ion-button style="color: #030c0b" [navPush]="stuhlPage" clear item-end>Mehr</button>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="../assets/imgs/Tisch.png">
+        </ion-thumbnail>
+        <h2>Tisch</h2>
+        <button ion-button style="color: #030c0b" [navPush]="tischPage" clear item-end>Mehr</button>          
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="../assets/imgs/Bildschirm.jpg">              
+        </ion-thumbnail>
+        <h2>Bildschirm</h2>
+        <button ion-button style="color: #030c0b" [navPush]="bildschirmPage" clear item-end>Mehr</button>
+      </ion-item> 
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="../assets/imgs/Notebook.png">
+        </ion-thumbnail>
+        <h2>Notebook</h2>
+        <button ion-button style="color: #030c0b" [navPush]="notebookPage" clear item-end>Mehr</button>
+      </ion-item>
+                    
+    </ion-list>
 </ion-content>

@@ -1,15 +1,15 @@
 <ion-menu [content]="content" >
   <ion-header>
     <ion-toolbar>
-      <img src="../assets/imgs/logo.jpg" width="40px" style="display:inline-block" height="40px"/>
+      <img src="../assets/imgs/LogoSmall.png" width="40px" style="display:inline-block" height="40px"/>
       <ion-title class="titleicon" style="display:inline-block" >LiftUp</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content style="background-color: #b8d942">
+  <ion-content style="background-color: #cee4a3">
    
     <ion-list  >
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" style="background-color: #b8d942">
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" style="background-color: #cee4a3">
         <ion-icon name="{{p.icon}}"></ion-icon>
         {{p.title}}
       </button>
