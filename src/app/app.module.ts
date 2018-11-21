@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
-import { MediListService } from '../services/medi-list.service';
+
 import { HttpClientModule } from '@angular/common/http'; 
 
 import { MyApp } from './app.component';

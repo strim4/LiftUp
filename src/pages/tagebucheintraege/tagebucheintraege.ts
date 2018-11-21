@@ -27,13 +27,14 @@ import {AngularFireObject} from 'angularfire2/database';
 })
 export class TagebucheintraegePage {
 
-  mediList: Observable<any[]>;
+  mediList: Observable<Medi[]>;
+ 
 
   
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
-const mediRef = afd.list<Medi>('medi-list');
+
 this.mediList = afd.list<Medi>('medi-list').valueChanges();
-;
+
 
   }
 
