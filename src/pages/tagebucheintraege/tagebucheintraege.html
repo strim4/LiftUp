@@ -19,9 +19,9 @@
       Medikamente
     </ion-list-header>
  
-    <ion-item *ngFor="let medi of mediList | async" 
-    detail-push navPush="EditMediPage" [navParams]="{note:note}">
-      {{medi.title}}
+    <ion-item *ngFor="let medi of mediList | async "  >
+     {{medi}}
+      
     </ion-item>
   </ion-list>
 </ion-content>

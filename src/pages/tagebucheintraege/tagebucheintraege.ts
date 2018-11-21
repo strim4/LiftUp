@@ -3,8 +3,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { Observable } from 'rxjs/Observable';
+import {FirebaseListObservable} from 'angularfire2/database-deprecated'
+
 import { Medi } from '../../model/medi/medi.model';
 import { map } from 'rxjs/operators';
+
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
+import {AngularFireObject} from 'angularfire2/database';
 
 
 /**
@@ -21,24 +26,19 @@ import { map } from 'rxjs/operators';
   providers: [FirebaseProvider]
 })
 export class TagebucheintraegePage {
-  mediList: Observable<Medi[]>;
+
+  mediList: Observable<any[]>;
+
   
-
-  constructor(public navCtrl: NavController,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
-/*this.mediList = this.firebaseProvider.getMedicationList()  
-    .snapshotChanges()
-    .map(
-    changes => {
-      return changes.map(c => ({
-        key: c.payload.key, ...c.payload.val()
-      }))
-    });*/
-
-    
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
+const mediRef = afd.list<Medi>('medi-list');
+this.mediList = afd.list<Medi>('medi-list').valueChanges();
+;
 
   }
 
   ionViewDidLoad() {
+    
     console.log('ionViewDidLoad TagebucheintraegePage');
   }
 

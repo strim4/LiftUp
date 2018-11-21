@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Medi } from '../../model/medi/medi.model';
-
-
+import {Observable} from 'rxjs';
+import { Reference } from '@firebase/database-types';
+import {FirebaseListObservable} from 'angularfire2/database-deprecated'
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
 /*
   Generated class for the FirebaseProvider provider.
@@ -14,6 +15,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 @Injectable()
 export class FirebaseProvider {
   private mediListRef = this.afd.list<Medi>('medi-list');
+  private ml = this.afd.list('medi-list');
 
   constructor(public http: HttpClient, public afd: AngularFireDatabase, private alertCtrl: AlertController) {
    
@@ -30,21 +32,24 @@ export class FirebaseProvider {
   }
   
 
-  getMedi(): AngularFireList<any[]>{
-      return this.afd.list('/medis/')
-  }
 
-  /*getMedi(): AngularFireList<any[]>{
-    return this.afd.list('/medis/')
-}*/
+
+
 addMedication(medi: Medi) {
   return this.mediListRef.push(medi);
  // this.afd.list('/medis-list/').push(medi);
 }
 
 getMedicationList() {
-  return this.mediListRef;
+  return this.mediListRef.valueChanges();
 }
+
+getMedi() {
+  return this.afd.list('medi-list');
+}
+
+
+
 
 updateMedication(medi: Medi) {
   return this.mediListRef.update(medi.key, medi);

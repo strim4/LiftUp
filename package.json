@@ -34,6 +34,7 @@
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "noble_base": "^1.0.5",
+    "object.map": "^1.0.1",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.3.3",
     "sw-toolbox": "3.6.0",
