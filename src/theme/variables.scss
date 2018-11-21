@@ -34,28 +34,28 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #b8d942,
-  secondary:  #455018,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #000000
+  primary:    #a4d5a3,
+  secondary:  #08443c,
+  danger:     #ff8f00,
+  light:      #cee4a3,
+  dark:       #030c0b
 );
 
 
 
-$text-color: #455018;
-$action-sheet-md-button-text-color: #455018;
-$action-sheet-ios-button-text-color: #455018;
-$action-sheet-md-button-background: #455018;
-$toolbar-background:#455018;
-$toolbar-ios-text-color:#455018;
-$toolbar-wd-text-color:#455018;
-$toolbar-md-text-color:#455018;
+$text-color: #08443c;
+$action-sheet-md-button-text-color: #08443c;
+$action-sheet-ios-button-text-color: #08443c;
+$action-sheet-md-button-background: #08443c;
+$toolbar-background:#08443c;
+$toolbar-ios-text-color:#08443c;
+$toolbar-wd-text-color:#08443c;
+$toolbar-md-text-color:#08443c;
 
 
-$toolbar-md-title-text-color: #b8d942;
-$toolbar-ios-title-text-color: #b8d942;
-$toolbar-wp-title-text-color: #b8d942;
+$toolbar-md-title-text-color: #a4d5a3;
+$toolbar-ios-title-text-color: #a4d5a3;
+$toolbar-wp-title-text-color: #a4d5a3;
 
 $menu-ios-background: primary;
 $menu-md-background: primary;
@@ -110,11 +110,11 @@ margin-bottom:10px;
 $button-round-border-radius: 10px;
 
 [text-color="my-custom-color"] {
-  color: #455018;
+  color: #08443c;
 }
 
 .menu{
-background-color:#b8d942
+background-color:#a4d5a3
 
 }
 

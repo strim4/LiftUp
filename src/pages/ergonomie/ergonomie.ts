@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { StuhlPage } from '../stuhl/stuhl';
+import { TischPage } from '../tisch/tisch';
+import { BildschirmPage } from '../bildschirm/bildschirm';
+import { NotebookPage } from '../notebook/notebook';
+
 /**
  * Generated class for the ErgonomiePage page.
  *
@@ -14,6 +19,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'ergonomie.html',
 })
 export class ErgonomiePage {
+  stuhlPage = StuhlPage;
+  tischPage = TischPage;
+  bildschirmPage = BildschirmPage;
+  notebookPage = NotebookPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
