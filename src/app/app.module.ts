@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+<<<<<<< HEAD
+=======
+
+>>>>>>> dff12fcff0d119a39ae6b2d8e97b54d031c08064
 import { HttpClientModule } from '@angular/common/http'; 
 
 import { MyApp } from './app.component';

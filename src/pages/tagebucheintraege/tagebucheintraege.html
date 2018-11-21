@@ -14,13 +14,15 @@
 
 
 <ion-content padding>
+  <h2>Medikamente</h2>
   <ion-list>
-    <ion-list-header>
-      Medikamente
-    </ion-list-header>
+    
  
     <ion-item *ngFor="let medi of mediList | async "  >
-     {{medi}}
+    <b>Bezeichnung:</b> <p>{{medi.title}}</p>
+    <b>Dosierung:</b> <p>{{medi.dosierung}}</p>
+   <b> Menge: </b><p>{{medi.menge}}</p>
+   <b> Tag der Einnahme: </b><p>{{medi.date}}</p>
       
     </ion-item>
   </ion-list>
