@@ -8,9 +8,7 @@
 
   <ion-navbar>
     <ion-title>Tagesbeschäftigung</ion-title>
-    <ion-buttons end>
-        <button ion-button icon-only (click)="addAct()"><ion-icon name="add"></ion-icon></button>
-    </ion-buttons>
+    
   </ion-navbar>
 
 </ion-header>
@@ -19,29 +17,32 @@
 <ion-content padding>
     <h1> Welche Aktivitäten hast du heute unternommen?</h1>
     <ion-list>
+    
  
-        <ion-item-sliding *ngFor="let activity of activities">
- 
-            <ion-item>
-              <ion-label>
-                {{activity.title}}
-                </ion-label>
-                <ion-checkbox  checked="false"></ion-checkbox>
-               
-            </ion-item>
- 
+        <ion-item *ngFor="let act of actList | async "  >
+            
+            
+        <p>{{act.title}}</p>
+
+        
           
- 
-        </ion-item-sliding>
- 
-    </ion-list>
+        </ion-item>
+      </ion-list>
       <ion-row>
           <ion-col width-50 style="text-align: center">
         <button ion-button class="btn2" style="color:#455018" big round icon-start>
             <ion-icon name="add-circle"></ion-icon>
           Speichern</button>
         </ion-col>
+        <ion-col width-50 style="text-align: center">
+            <button ion-button class="btn2" style="color:#455018" [navPush]="addactPage" big round icon-start>
+                <ion-icon name="add-circle"></ion-icon>
+              Aktivität hinufügen</button>
+            </ion-col>
+            
+        
         
         </ion-row>
+       
 
 </ion-content>

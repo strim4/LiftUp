@@ -1,0 +1,32 @@
+<!--
+  Generated template for the AddactPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Aktivität hinzufügen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <h1> Welche Aktivität möchtest du hinzufügen?</h1>
+    <ion-item>
+        <ion-label color="secondary">Aktivität:</ion-label>
+        <ion-input  placeholder="Schwimmen"  clearInput="true" [(ngModel)]="act.title"></ion-input>
+      </ion-item>
+
+      <ion-row>
+          <ion-col width-50 style="text-align: center">
+        <button ion-button (click)="addAct()" class="btn2" style="color:#455018" big round icon-start>
+            <ion-icon name="add-circle"></ion-icon>
+          Speichern</button>
+        </ion-col>
+        
+        </ion-row>
+
+</ion-content>

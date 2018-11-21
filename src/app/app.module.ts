@@ -16,6 +16,7 @@ import { AnalysePage } from '../pages/analyse/analyse';
 import { ArztbriefexportPage } from '../pages/arztbriefexport/arztbriefexport';
 import { ProfilePage } from '../pages/profile/profile';
 import { ErinnerungPage } from '../pages/erinnerung/erinnerung';
+import { AddactPage } from '../pages/addact/addact';
 
 import { AngularFireDatabaseModule } from 'angularfire2/database'; 
 import { AngularFireModule } from 'angularfire2';
@@ -73,7 +74,8 @@ TagebucheintraegePage,
     EnergiePage,
     TagesbeschaftigungPage,
     AktivitaetslevelPage,
-    MedikamentePage
+    MedikamentePage,
+    AddactPage
 
   ],
   imports: [
@@ -107,7 +109,7 @@ TagebucheintraegePage,
     UebMitRueckenPage,
     UebUntRueckenPage,
     UebGanzRueckenPage,
-
+    AddactPage,
     TagesbeschaftigungPage,
     AktivitaetslevelPage,
     MedikamentePage,

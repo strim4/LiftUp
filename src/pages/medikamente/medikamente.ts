@@ -24,7 +24,8 @@ export class MedikamentePage {
   medi: Medi = {
     title: '',
     dosierung: '',
-    menge:''
+    menge: '' ,
+    
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public firebaseProvider: FirebaseProvider) {
