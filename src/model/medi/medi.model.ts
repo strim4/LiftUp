@@ -3,4 +3,5 @@ export interface Medi {
     title: string;
     dosierung: string;
     menge: string;
+    date: Date;
 }
