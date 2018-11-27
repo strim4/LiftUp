@@ -25,6 +25,7 @@ export class MedikamentePage {
     title: '',
     dosierung: '',
     menge: '' ,
+    date:  new Date
     
   };
 
