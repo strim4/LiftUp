@@ -47,6 +47,7 @@ public loading: Loading;
   loginUser(): Promise<any> {
     const email: string = this.loginForm.value.email;
     const password: string = this.loginForm.value.password;
+   this.navCtrl.setRoot(HomePage);
     return firebase.auth().signInWithEmailAndPassword(email, password);
     };
   
