@@ -21,8 +21,10 @@
  
         <ion-item *ngFor="let act of actList | async "  >
             
-            
-        <p>{{act.title}}</p>
+         
+        <ion-label>{{act.title}}</ion-label>
+        <ion-checkbox [(ngModel)]="act.checked"></ion-checkbox>
+      
 
         
           
@@ -30,7 +32,7 @@
       </ion-list>
       <ion-row>
           <ion-col width-50 style="text-align: center">
-        <button ion-button class="btn2" style="color:#455018" big round icon-start>
+        <button ion-button class="btn2" (click)="add()" style="color:#455018" big round icon-start>
             <ion-icon name="add-circle"></ion-icon>
           Speichern</button>
         </ion-col>

@@ -17,6 +17,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 export class FirebaseProvider {
   private mediListRef = this.afd.list<Medi>('medi-list');
   private actListRef = this.afd.list<Act>('act-list');
+  private actpListRef = this.afd.list<Act>('actp-list');
   private ml = this.afd.list('medi-list');
 
   constructor(public http: HttpClient, public afd: AngularFireDatabase, private alertCtrl: AlertController) {
@@ -46,6 +47,8 @@ addAct(act: Act) {
   return this.actListRef.push(act);
  // this.afd.list('/medis-list/').push(medi);
 }
+
+
 
 getMedicationList() {
   return this.mediListRef.valueChanges();

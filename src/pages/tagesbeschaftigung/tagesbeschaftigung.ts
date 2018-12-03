@@ -22,18 +22,32 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 export class TagesbeschaftigungPage {
     addactPage = AddactPage;
     actList: Observable<Act[]>;
+    selectedArray :any = [];
+    act = this.selectedArray;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,  public afd: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,  public afd: AngularFireDatabase, public firebaseProvider: FirebaseProvider) {
    
     this.actList = afd.list<Act>('act-list').valueChanges();
   }
 
   
 
-    
+  selectAct(data){
+    if (data.checked == true) {
+       this.selectedArray.push(data);
+     } else {
+      let newArray = this.selectedArray.filter(function(el) {
+        return el.testID !== data.testID;
+     });
+      this.selectedArray = newArray;
+    }
+    console.log(this.selectedArray);
+   }
   
-
+add(){
+  this.firebaseProvider.addPAct(this.act);
+}
   
 
   ionViewDidLoad() {
