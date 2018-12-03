@@ -45,9 +45,7 @@ export class TagesbeschaftigungPage {
     console.log(this.selectedArray);
    }
   
-add(){
-  this.firebaseProvider.addPAct(this.act);
-}
+
   
 
   ionViewDidLoad() {

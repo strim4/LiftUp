@@ -4,6 +4,7 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import {  AngularFireList } from "angularfire2/database"; 
 import { Medi } from '../../model/medi/medi.model';
+import { AlertController } from 'ionic-angular';
 
 
 
@@ -29,7 +30,7 @@ export class MedikamentePage {
     
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  public firebaseProvider: FirebaseProvider) {
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController, public navParams: NavParams,  public firebaseProvider: FirebaseProvider) {
   
   }
   
@@ -38,9 +39,19 @@ export class MedikamentePage {
     console.log('ionViewDidLoad MedikamentePage');
   }
 
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Speichern',
+      subTitle: 'Der Eintrag wurde gespeichert!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
   addMedication(medi: Medi) {
    // this.mediListService.addMedication(medi);
    this.firebaseProvider.addMedication(this.medi);
+   this.presentAlert();
   }
 
 }
