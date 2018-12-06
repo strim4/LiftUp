@@ -17,16 +17,20 @@
   <h1> Wie ist heute dein Energielevel?</h1>
   <ion-img [width]="200" [height]="226" src="../../assets/imgs/asterix.jpg" class="img"></ion-img>
     <ion-item  >
-        <ion-range min="0" max="10" step="1" pin="true" snaps="true" [(ngModel)]="saturation" color="secondary">
+        <ion-range min="0" max="10" step="1" pin="true" snaps="true" [(ngModel)]="energy.enlev" color="secondary">
           <ion-label range-left>0</ion-label>
           <ion-label range-right>10</ion-label>
         </ion-range>
       </ion-item >
+      <ion-item>
+        <ion-label color="secondary">Tag des Energielevels:</ion-label>
+        <ion-input type="date" placeholder="12.12.2018" clearInput="true" [(ngModel)]="energy.date"></ion-input>
+      </ion-item>
       
      
       <ion-row>
           <ion-col width-50 style="text-align: center">
-        <button ion-button class="btn2" style="color:#455018" big round icon-start>
+        <button ion-button class="btn2" style="color:#455018" (click)="addEnergy()" big round icon-start>
             <ion-icon name="add-circle"></ion-icon>
           Speichern</button>
         </ion-col>

@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Medi } from '../../model/medi/medi.model';
 import { Act } from '../../model/act/act.model';
+import { Actlev } from '../../model/actlev/actlev.model';
+import { Energy } from '../../model/energy/energy.model';
 import {Observable} from 'rxjs';
 import { Reference } from '@firebase/database-types';
 import {FirebaseListObservable} from 'angularfire2/database-deprecated'
@@ -17,6 +19,8 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 export class FirebaseProvider {
   private mediListRef = this.afd.list<Medi>('medi-list');
   private actListRef = this.afd.list<Act>('act-list');
+  private energyListRef = this.afd.list<Energy>('energy-list');
+  private actlevListRef = this.afd.list<Actlev>('actlev-list');
   private actpListRef = this.afd.list<Act>('actp-list');
   private ml = this.afd.list('medi-list');
 
@@ -48,6 +52,16 @@ addAct(act: Act) {
  // this.afd.list('/medis-list/').push(medi);
 }
 
+addEnergy(energy: Energy) {
+  return this.energyListRef.push(energy);
+ // this.afd.list('/medis-list/').push(medi);
+}
+
+addActLev(actlev: Actlev) {
+  return this.actlevListRef.push(actlev);
+ // this.afd.list('/medis-list/').push(medi);
+}
+
 
 
 getMedicationList() {
@@ -74,13 +88,7 @@ removeMedication(medi: Medi) {
     return this.afd.list('/activlevel/')
 }
 
-  addActivlevel(activLevel){
-    this.afd.list('/activlevel/').push(activLevel);
-    
-   
-   
-   // this.savedAlert();
-  }
+
 
   removeActivLevel(id){
     this.afd.list('/activlevel/').remove(id);

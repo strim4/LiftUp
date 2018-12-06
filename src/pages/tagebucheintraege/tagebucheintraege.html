@@ -25,6 +25,33 @@
    <b> Tag der Einnahme: </b><p>{{medi.date}}</p>
       
     </ion-item>
+
   </ion-list>
+  <h2>Energylevel</h2>
+  <ion-list>
+    
+ 
+    <ion-item *ngFor="let energy of energyList | async "  >
+    <b>Energielevel:</b> <p>{{energy.enlev}} von 10</p>
+   
+   <b> Datum: </b><p>{{energy.date}}</p>
+      
+    </ion-item>
+    
+  </ion-list>
+
+  <h2>Aktivitätslevel</h2>
+  <ion-list>
+    
+ 
+    <ion-item *ngFor="let actlev of actlevList | async "  >
+    <b>Aktivitätslevel:</b> <p>{{actlev.actlev}} von 10</p>
+   
+   <b> Datum: </b><p>{{actlev.date}}</p>
+      
+    </ion-item>
+    
+  </ion-list>
+
 </ion-content>
 

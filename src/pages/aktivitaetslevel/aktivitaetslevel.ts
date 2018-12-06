@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
+import { Actlev } from '../../model/actlev/actlev.model';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the AktivitaetslevelPage page.
@@ -15,13 +17,29 @@ import { FirebaseProvider } from './../../providers/firebase/firebase';
   templateUrl: 'aktivitaetslevel.html',
 })
 export class AktivitaetslevelPage {
-activLevel = '';
+  actlev: Actlev = {
+    actlev: '',
+    date: new Date,
+  
+    
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public firebaseProvider: FirebaseProvider) {
+  }
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Speichern',
+      subTitle: 'Der Eintrag wurde gespeichert!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   addActivlevel(){
-    this.firebaseProvider.addActivlevel(this.activLevel);
+    this.firebaseProvider.addActLev(this.actlev);
+    this.presentAlert();
   }
 
   ionViewDidLoad() {
