@@ -16,14 +16,25 @@
 
 <ion-content padding>
     <h1> Welche Aktivitäten hast du heute unternommen?</h1>
-    <ion-list>
+
+    <ion-item>
+        <ion-label color="secondary">Tag der Aktivität:</ion-label>
+        <ion-input type="date" placeholder="09.12.2018" clearInput="true" [(ngModel)]="date"></ion-input>
+      </ion-item>
+
+     <ion-list>
     
  
         <ion-item *ngFor="let act of actList | async "  >
             
+        
          
         <ion-label>{{act.title}}</ion-label>
-        <ion-checkbox [(ngModel)]="act.checked"></ion-checkbox>
+        <ion-checkbox  [(ngModel)]="act.checked" (click)="selectAct(act)"></ion-checkbox>
+        
+      
+     
+      
       
 
         

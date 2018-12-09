@@ -41,6 +41,7 @@ title: any;
   allmediList: Observable<any>;
   allenergyList: Observable<any>;
   allactlevList: Observable<any>;
+  selActList: Observable<any>;
 
   public filteredMediList: Observable<any> ;
   public filteredTextMediList: Observable<any> ;
@@ -58,6 +59,7 @@ this.mediList = afd.list<Medi>('medi-list').valueChanges();
 
 this.energyList = afd.list<Energy>('energy-list').valueChanges();
 this.actlevList = afd.list<Actlev>('actlev-list').valueChanges();
+this.selActList = afd.list('selact-list').valueChanges();
 /*this.filteredMediList = this.mediList
       .map(receita => {        
         return receita.filter(r => {          

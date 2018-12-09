@@ -20,22 +20,25 @@
 </ion-datetime></ion-icon>
 
 <ion-item>
-<button ion-button (click)="showFilterDate(tdate)" big round icon-start>Einträge nach Datum Anzeigen</button>
-<button ion-button (click)="showAll()" big round icon-start>Alle Einträge Anzeigen</button>
+<button ion-button (click)="showFilterDate(tdate)" style="color:#455018"  class="btn2" big round icon-start>Einträge nach Datum Anzeigen</button>
+<button ion-button (click)="showAll()" style="color:#455018"  class="btn2" big round icon-start>Alle Einträge Anzeigen</button>
 </ion-item>
   
 
   
 
-  <h2>Medikamente Filter</h2>
+  
   
 
  
   <ion-list reorder="true">
     
-    
- 
+     
+      <h2>Medikamente</h2>
     <ion-item *ngFor="let medi of filteredTextMediList | async "  >
+
+     
+       
     <b>Bezeichnung:</b> <p>{{medi.title}}</p>
     <b>Dosierung:</b> <p>{{medi.dosierung}}</p>
    <b> Menge: </b><p>{{medi.menge}}</p>
@@ -105,6 +108,19 @@
     <b>Aktivitätslevel:</b> <p>{{actlev.actlev}} von 10</p>
    
    <b> Datum: </b><p>{{actlev.date}}</p>
+      
+    </ion-item>
+    
+  </ion-list>
+
+  <h2>Tagesaktivitäten</h2>
+  <ion-list reorder="true">
+    
+ 
+    <ion-item *ngFor="let selact of selActList | async "  >
+    <b>Bezeichnung:</b> {{selact}}
+   
+   
       
     </ion-item>
     

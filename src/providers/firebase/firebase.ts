@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Medi } from '../../model/medi/medi.model';
+import { Selact } from '../../model/selact/selact.model';
+
 import { Act } from '../../model/act/act.model';
 import { Actlev } from '../../model/actlev/actlev.model';
 import { Energy } from '../../model/energy/energy.model';
@@ -19,6 +21,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 export class FirebaseProvider {
   private mediListRef = this.afd.list<Medi>('medi-list');
   private actListRef = this.afd.list<Act>('act-list');
+  private selactListRef = this.afd.list<Selact>('selact-list');
   private energyListRef = this.afd.list<Energy>('energy-list');
   private actlevListRef = this.afd.list<Actlev>('actlev-list');
   private actpListRef = this.afd.list<Act>('actp-list');
@@ -29,14 +32,7 @@ export class FirebaseProvider {
   }
 
 
-  savedAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'Gespeichert!',
-      subTitle: 'Der neue Eintrag wurde gespeichert',
-      buttons: ['Ok']
-    });
-    alert.present();
-  }
+
   
 
 
@@ -49,6 +45,11 @@ addMedication(medi: Medi) {
 
 addAct(act: Act) {
   return this.actListRef.push(act);
+ // this.afd.list('/medis-list/').push(medi);
+}
+
+addSelact(selact: Selact) {
+  return this.selactListRef.push(selact);
  // this.afd.list('/medis-list/').push(medi);
 }
 

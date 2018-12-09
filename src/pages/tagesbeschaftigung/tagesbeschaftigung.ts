@@ -4,7 +4,9 @@ import { AddactPage } from '../addact/addact';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { Observable } from 'rxjs/Observable';
 import { Act } from '../../model/act/act.model';
+import { Selact } from '../../model/selact/selact.model';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
+import { filter } from 'rxjs/operators';
 
 /**
  * Generated class for the TagesbeschaftigungPage page.
@@ -20,10 +22,18 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
   providers: [FirebaseProvider]
 })
 export class TagesbeschaftigungPage {
+ 
+  
+  
+    date:  Date;
+    
+ 
     addactPage = AddactPage;
     actList: Observable<Act[]>;
+    checkedActList: Observable<any>;
     selectedArray :any = [];
-    act = this.selectedArray;
+   
+    
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,  public afd: AngularFireDatabase, public firebaseProvider: FirebaseProvider) {
@@ -33,9 +43,14 @@ export class TagesbeschaftigungPage {
 
   
 
+  
+
+
   selectAct(data){
+    
     if (data.checked == true) {
-       this.selectedArray.push(data);
+       this.selectedArray.push(this.date, data.title);
+       
      } else {
       let newArray = this.selectedArray.filter(function(el) {
         return el.testID !== data.testID;
@@ -44,9 +59,25 @@ export class TagesbeschaftigungPage {
     }
     console.log(this.selectedArray);
    }
-  
 
-  
+   presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Speichern',
+      subTitle: 'Der Eintrag wurde gespeichert!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+   add(){
+   
+      this.firebaseProvider.addSelact(this.selectedArray);
+      this.presentAlert();
+    
+     }
+
+   
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TagesbeschaftigungPage');
