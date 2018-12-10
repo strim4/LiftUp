@@ -1,3 +1,5 @@
+
+// Alle verwendeten Module, die von der App verwendet werden, werden hier importiert
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';

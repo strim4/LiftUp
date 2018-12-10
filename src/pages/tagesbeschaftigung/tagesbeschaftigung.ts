@@ -37,7 +37,7 @@ export class TagesbeschaftigungPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,  public afd: AngularFireDatabase, public firebaseProvider: FirebaseProvider) {
-   
+   //Tagesaktivitäten abrufen
     this.actList = afd.list<Act>('act-list').valueChanges();
   }
 
@@ -45,7 +45,7 @@ export class TagesbeschaftigungPage {
 
   
 
-
+// Die Aktivitäten, welche mit Checkbox gekennzeichnet sind in einen neuen Array speichern
   selectAct(data){
     
     if (data.checked == true) {
@@ -59,7 +59,7 @@ export class TagesbeschaftigungPage {
     }
     console.log(this.selectedArray);
    }
-
+//Speicher Hinweis
    presentAlert() {
     let alert = this.alertCtrl.create({
       title: 'Speichern',
@@ -68,7 +68,7 @@ export class TagesbeschaftigungPage {
     });
     alert.present();
   }
-
+// Array mit den ausgewählten Aktivitäten in Firebase speichern
    add(){
    
       this.firebaseProvider.addSelact(this.selectedArray);

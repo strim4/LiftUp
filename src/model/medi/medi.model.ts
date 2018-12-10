@@ -1,3 +1,4 @@
+//Datenbankmodell für die Medikamente
 export interface Medi {
     key?: string;
     title: string;

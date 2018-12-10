@@ -1,3 +1,4 @@
+// Diese Validator prüft, ob es sich bei E-Mail von der Loginpage um eine Adresse mit gültigem Format handelt.
 import { FormControl } from '@angular/forms';
 export class EmailValidator {
 static isValid(control: FormControl) {

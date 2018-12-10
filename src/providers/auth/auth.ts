@@ -1,3 +1,4 @@
+// Dieser Provider stellt die Funktionen Login, Reset PW und Signup zur verfügung
 import {Injectable} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import firebase from 'firebase';
@@ -8,12 +9,12 @@ constructor() {
 
   
 }
-
+// Firebase Loginfunktion
 loginUser(email: string, password: string): Promise<any> {
   
   return firebase.auth().signInWithEmailAndPassword(email, password);
   };
-
+//Firebase Registrierungsfunktion
   signupUser(email: string, password: string): Promise<any> {
     return firebase
     .auth()
@@ -29,7 +30,7 @@ loginUser(email: string, password: string): Promise<any> {
     throw new Error(error);
     });
     };
-
+// Firebase Reset PW Funktion
     resetPassword(email:string): Promise<void> {
       return firebase.auth().sendPasswordResetEmail(email);
       };

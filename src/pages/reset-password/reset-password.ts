@@ -31,7 +31,7 @@ export class ResetPasswordPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResetPasswordPage');
   }
-
+// Funktion für PW Reset
   resetPassword(): void {
     if (!this.resetPasswordForm.valid) {
     console.log(

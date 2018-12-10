@@ -22,6 +22,7 @@ import { AlertController } from 'ionic-angular';
   providers: [FirebaseProvider]
 })
 export class MedikamentePage {
+  //Datenmodell für die Medikamente
   medi: Medi = {
     title: '',
     dosierung: '',
@@ -38,7 +39,7 @@ export class MedikamentePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MedikamentePage');
   }
-
+//Alarm beim Speichern
   presentAlert() {
     let alert = this.alertCtrl.create({
       title: 'Speichern',
@@ -47,7 +48,7 @@ export class MedikamentePage {
     });
     alert.present();
   }
-
+// Medikament speichern
   addMedication(medi: Medi) {
    // this.mediListService.addMedication(medi);
    this.firebaseProvider.addMedication(this.medi);

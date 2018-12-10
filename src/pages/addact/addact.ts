@@ -17,6 +17,8 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'addact.html',
   providers: [FirebaseProvider]
 })
+
+//Datenmodell für die Aktivitäten
 export class AddactPage {
   act: Act = {
     title: '',
@@ -30,6 +32,8 @@ export class AddactPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddactPage');
   }
+
+  //Funktion für den Speichern Alarm
   presentAlert() {
     let alert = this.alertCtrl.create({
       title: 'Speichern',
@@ -38,7 +42,8 @@ export class AddactPage {
     });
     alert.present();
   }
-
+ 
+  //Funktion für das Hinzufügen von Aktivitäten
   addAct(act: Act) {
     // this.mediListService.addMedication(medi);
     this.firebaseProvider.addAct(this.act);

@@ -34,6 +34,8 @@ public loading: Loading;
       ]
       });
   }
+
+  // Funktion für die Registrierung mittels Firebase
   signupUser(): void {
     if (!this.signupForm.valid) {
     console.log(

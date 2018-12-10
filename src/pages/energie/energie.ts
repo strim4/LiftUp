@@ -15,7 +15,9 @@ import { AlertController } from 'ionic-angular';
   selector: 'page-energie',
   templateUrl: 'energie.html',
 })
+
 export class EnergiePage {
+  //Datenmodell für den Energielevel
   energy: Energy = {
     enlev: '',
     date: new Date,
@@ -29,7 +31,7 @@ export class EnergiePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EnergiePage');
   }
-
+//Alarm beim Speichern
   presentAlert() {
     let alert = this.alertCtrl.create({
       title: 'Speichern',
@@ -38,7 +40,7 @@ export class EnergiePage {
     });
     alert.present();
   }
-
+//Funktion für das Speichern von Medis
   addEnergy(energy: Energy) {
    // this.mediListService.addMedication(medi);
    this.firebaseProvider.addEnergy(this.energy);

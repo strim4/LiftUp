@@ -16,7 +16,9 @@ import { AlertController } from 'ionic-angular';
   selector: 'page-aktivitaetslevel',
   templateUrl: 'aktivitaetslevel.html',
 })
+
 export class AktivitaetslevelPage {
+  //Datenmodell für den Aktivitätslevel
   actlev: Actlev = {
     actlev: '',
     date: new Date,
@@ -27,7 +29,7 @@ export class AktivitaetslevelPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public firebaseProvider: FirebaseProvider) {
   }
-
+//Speichern Alarm 
   presentAlert() {
     let alert = this.alertCtrl.create({
       title: 'Speichern',
@@ -36,7 +38,7 @@ export class AktivitaetslevelPage {
     });
     alert.present();
   }
-
+//Aktivitätslevel speichern
   addActivlevel(){
     this.firebaseProvider.addActLev(this.actlev);
     this.presentAlert();

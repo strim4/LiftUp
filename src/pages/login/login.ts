@@ -43,7 +43,7 @@ public loading: Loading;
       ]
       });
   }
-
+//Login Funktion
   loginUser(): Promise<any> {
     const email: string = this.loginForm.value.email;
     const password: string = this.loginForm.value.password;
@@ -51,10 +51,12 @@ public loading: Loading;
     return firebase.auth().signInWithEmailAndPassword(email, password);
     };
   
-
+// Zu Registrierung wechseln
   goToSignup():void {
     this.navCtrl.push('SignupPage');
     }
+
+  // Link zum PW zurücksetzten
     goToResetPassword():void {
     this.navCtrl.push('ResetPasswordPage');
     }

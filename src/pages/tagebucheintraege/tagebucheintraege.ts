@@ -31,10 +31,11 @@ import {AngularFireObject} from 'angularfire2/database';
   providers: [FirebaseProvider]
 })
 export class TagebucheintraegePage {
+  //Klassenvariabeln
 tdate: any;
 title: any;
 
-
+//Container für die DB-Listen
   mediList: Observable<Medi[]>;
   energyList: Observable<Energy[]>;
   actlevList: Observable<Actlev[]>;
@@ -54,18 +55,13 @@ title: any;
 
   
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
-   // this.tdate = tdate;
+ //Listen aus FIrebase abrufen
 this.mediList = afd.list<Medi>('medi-list').valueChanges();
 
 this.energyList = afd.list<Energy>('energy-list').valueChanges();
 this.actlevList = afd.list<Actlev>('actlev-list').valueChanges();
 this.selActList = afd.list('selact-list').valueChanges();
-/*this.filteredMediList = this.mediList
-      .map(receita => {        
-        return receita.filter(r => {          
-          return (r.date) == this.tdate;
-        })
-      }, error => console.log(error)); */
+
 
 
       
@@ -75,15 +71,7 @@ this.selActList = afd.list('selact-list').valueChanges();
 
  
 
-//working with title
- /*showFilter(title: string){
-  this.filteredTextMediList = this.mediList
-  .map(receita => {        
-    return receita.filter(r => {          
-      return (r.title) == this.title;
-    })
-  }, error => console.log(error))
- }*/
+
 //Filter für das Datum der Tagebucheinträge
  showFilterDate(date: Date){
   this.filteredTextMediList = this.mediList
@@ -107,7 +95,7 @@ this.selActList = afd.list('selact-list').valueChanges();
 
 
  }
-
+//Alle Einträge anzeigen
  showAll(){
   this.allmediList = this.mediList;
   this.allenergyList = this.energyList;

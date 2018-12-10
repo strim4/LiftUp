@@ -32,7 +32,9 @@
 
  
   <ion-list reorder="true">
-    
+    <!--
+Liste der gefilterten Medis
+-->
      
       <h2>Medikamente</h2>
     <ion-item *ngFor="let medi of filteredTextMediList | async "  >
@@ -45,7 +47,9 @@
    <b> Tag der Einnahme: </b><p>{{medi.date}}</p>
       
     </ion-item>
-
+    <!--
+Liste der gefilterten Energielevel
+-->
     <h2>Energylevel Filter</h2>
     <ion-list reorder="true">
       
@@ -59,6 +63,9 @@
       
     </ion-list >
 
+        <!--
+Liste der gefilterten Aktivitätslevel
+-->
   </ion-list >
   <h2>Aktivitätslevel Filter</h2>
   <ion-list reorder="true">
@@ -70,7 +77,9 @@
    <b> Datum: </b><p>{{actlev.date}}</p>
       
     </ion-item>
-    
+      <!--
+Liste aller Medis
+-->  
   </ion-list>
   <h2>Medikamente</h2>
   <ion-list reorder="true">
@@ -86,7 +95,9 @@
     </ion-item>
 
   </ion-list >
-
+     <!--
+Liste aller Energielevel
+-->  
   <h2>Energylevel</h2>
   <ion-list reorder="true">
     
@@ -99,7 +110,9 @@
     </ion-item>
     
   </ion-list >
-
+     <!--
+Liste aller Aktivitätslevel
+-->  
   <h2>Aktivitätslevel</h2>
   <ion-list reorder="true">
     
@@ -112,7 +125,9 @@
     </ion-item>
     
   </ion-list>
-
+     <!--
+Liste aller Tagesaktivitäten
+-->  
   <h2>Tagesaktivitäten</h2>
   <ion-list reorder="true">
     
