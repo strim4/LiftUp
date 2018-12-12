@@ -23,9 +23,14 @@ import { filter } from 'rxjs/operators';
 })
 export class TagesbeschaftigungPage {
  
+  selact: Selact = {
+    title: '',
+    date:  new Date
+    
+  };
+
   
-  
-    date:  Date;
+    adate:  Date;
     
  
     addactPage = AddactPage;
@@ -49,15 +54,18 @@ export class TagesbeschaftigungPage {
   selectAct(data){
     
     if (data.checked == true) {
-       this.selectedArray.push(this.date, data.title);
+     //this.selectedArray.push(this.adate, data.title);
+       this.selact.title = data.title;
+       this.selact.date = this.adate;
+       this.firebaseProvider.addSelact(this.selact)
        
-     } else {
+     } else {/*
       let newArray = this.selectedArray.filter(function(el) {
         return el.testID !== data.testID;
      });
       this.selectedArray = newArray;
-    }
-    console.log(this.selectedArray);
+    */} 
+    console.log(this.selact);
    }
 //Speicher Hinweis
    presentAlert() {
@@ -70,8 +78,10 @@ export class TagesbeschaftigungPage {
   }
 // Array mit den ausgewählten Aktivitäten in Firebase speichern
    add(){
-   
-      this.firebaseProvider.addSelact(this.selectedArray);
+     
+     // this.firebaseProvider.addSelact(this.selact)
+      //this.firebaseProvider.addSelact(this.selectedArray)
+     
       this.presentAlert();
     
      }

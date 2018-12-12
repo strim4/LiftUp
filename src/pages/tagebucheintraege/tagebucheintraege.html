@@ -31,13 +31,13 @@
   
 
  
-  <ion-list reorder="true">
+  <ion-list reorder="true" > 
     <!--
 Liste der gefilterten Medis
 -->
      
       <h2>Medikamente</h2>
-    <ion-item *ngFor="let medi of filteredTextMediList | async "  >
+    <ion-item  *ngFor="let medi of filteredTextMediList | async "  >
 
      
        
@@ -75,6 +75,21 @@ Liste der gefilterten Aktivitätslevel
     <b>Aktivitätslevel:</b> <p>{{actlev.actlev}} von 10</p>
    
    <b> Datum: </b><p>{{actlev.date}}</p>
+      
+    </ion-item>
+
+       <!--
+Liste der gefilterten Aktivitäten
+-->
+  </ion-list >
+  <h2>Aktivitäten Filter</h2>
+  <ion-list reorder="true">
+    
+ 
+    <ion-item *ngFor="let act of filteredselActList | async "  >
+      <b>Aktivität:</b> <p>{{act.title}}</p>
+   
+      <b> Datum: </b><p>{{act.date}}</p>
       
     </ion-item>
       <!--
@@ -117,7 +132,7 @@ Liste aller Aktivitätslevel
   <ion-list reorder="true">
     
  
-    <ion-item *ngFor="let actlev of allactlevList | async "  >
+    <ion-item  *ngFor="let actlev of allactlevList | async "  >
     <b>Aktivitätslevel:</b> <p>{{actlev.actlev}} von 10</p>
    
    <b> Datum: </b><p>{{actlev.date}}</p>
@@ -129,17 +144,19 @@ Liste aller Aktivitätslevel
 Liste aller Tagesaktivitäten
 -->  
   <h2>Tagesaktivitäten</h2>
+ 
   <ion-list reorder="true">
     
  
-    <ion-item *ngFor="let selact of selActList | async "  >
-    <b>Bezeichnung:</b> {{selact}}
+    <ion-item *ngFor="let selact of allselActList | async "  >
+    <b>Aktivität:</b> <p>{{selact.title}}</p>
    
-   
+   <b> Datum: </b><p>{{selact.date}}</p>
       
     </ion-item>
     
   </ion-list>
+  
 
 </ion-content>
 

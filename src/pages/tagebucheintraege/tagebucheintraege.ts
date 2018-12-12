@@ -39,15 +39,18 @@ title: any;
   mediList: Observable<Medi[]>;
   energyList: Observable<Energy[]>;
   actlevList: Observable<Actlev[]>;
+  selActList: Observable<any>;
   allmediList: Observable<any>;
   allenergyList: Observable<any>;
   allactlevList: Observable<any>;
-  selActList: Observable<any>;
+  allselActList: Observable<any>;
+
 
   public filteredMediList: Observable<any> ;
   public filteredTextMediList: Observable<any> ;
   public filteredEnergyList: Observable<any> ;
   filteredActlevelList: Observable<any> ;
+  filteredselActList: Observable<any> ;
 
   public aMediList: Observable<any> ;
   
@@ -92,6 +95,12 @@ this.selActList = afd.list('selact-list').valueChanges();
       return (r.date) == this.tdate;
     })
   }, error => console.log(error));
+  this.filteredselActList = this.selActList
+  .map(receita => {        
+    return receita.filter(r => {          
+      return (r.date) == this.tdate;
+    })
+  }, error => console.log(error));
 
 
  }
@@ -100,6 +109,7 @@ this.selActList = afd.list('selact-list').valueChanges();
   this.allmediList = this.mediList;
   this.allenergyList = this.energyList;
   this.allactlevList = this.actlevList;
+  this.allselActList = this.selActList;
 
 
  }

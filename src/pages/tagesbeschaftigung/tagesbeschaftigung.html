@@ -15,11 +15,11 @@
 
 
 <ion-content padding>
-    <h1> Welche Aktivitäten hast du heute unternommen?</h1>
+    <h1> Welche Aktivitäten hast du unternommen?</h1>
 
     <ion-item>
         <ion-label color="secondary">Tag der Aktivität:</ion-label>
-        <ion-input type="date" placeholder="09.12.2018" clearInput="true" [(ngModel)]="date"></ion-input>
+        <ion-input type="date" placeholder="09.12.2018" clearInput="true" [(ngModel)]="adate"></ion-input>
       </ion-item>
  <!--
  Checkboxliste der hinterlegten Tagesaktivitäten
@@ -32,7 +32,9 @@
         
          
         <ion-label>{{act.title}}</ion-label>
-        <ion-checkbox  [(ngModel)]="act.checked" (click)="selectAct(act)"></ion-checkbox>
+
+        
+        <ion-checkbox  [(ngModel)]="act.checked" (click)="selectAct(act)" ></ion-checkbox>
         
       
      
@@ -52,7 +54,7 @@
         <ion-col width-50 style="text-align: center">
             <button ion-button class="btn2" style="color:#455018" [navPush]="addactPage" big round icon-start>
                 <ion-icon name="add-circle"></ion-icon>
-              Aktivität hinufügen</button>
+              Neue Aktivität der Liste hinufügen</button>
             </ion-col>
             
         
