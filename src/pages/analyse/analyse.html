@@ -17,6 +17,24 @@
   
   
   <ion-content padding>
+    <button ion-button (click)="show()" style="color:#455018"  class="btn2" big round icon-start>Show</button>
+    <ion-card>
+        <ion-card-header>
+         Energielevel
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #lineCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+         Aktivitätslevel
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #lineactCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+      
   
   </ion-content>
   

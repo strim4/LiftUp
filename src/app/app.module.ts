@@ -5,6 +5,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { HttpClientModule } from '@angular/common/http'; 
+import { ChartsModule } from 'ng2-charts';
+import { ChartModule } from 'angular-highcharts';
+import { FusionCharts } from 'fusioncharts';
 
 
 import { MyApp } from './app.component';
@@ -108,6 +111,10 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ChartsModule,
+    ChartModule ,
+    
+   
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,  
     IonicModule.forRoot(MyApp),
