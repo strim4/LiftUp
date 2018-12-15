@@ -34,6 +34,8 @@ export class TagebucheintraegePage {
   //Klassenvariabeln
 tdate: any;
 title: any;
+shouldHide: boolean;
+shouldHideAll: boolean;
 
 //Container für die DB-Listen
   mediList: Observable<Medi[]>;
@@ -60,11 +62,11 @@ title: any;
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
  //Listen aus FIrebase abrufen
 this.mediList = afd.list<Medi>('medi-list').valueChanges();
-
+this.shouldHide = true;
 this.energyList = afd.list<Energy>('energy-list').valueChanges();
 this.actlevList = afd.list<Actlev>('actlev-list').valueChanges();
 this.selActList = afd.list('selact-list').valueChanges();
-
+this.shouldHideAll = true;
 
 
       
@@ -101,11 +103,12 @@ this.selActList = afd.list('selact-list').valueChanges();
       return (r.date) == this.tdate;
     })
   }, error => console.log(error));
-
+  this.shouldHide = false;
 
  }
 //Alle Einträge anzeigen
  showAll(){
+  this.shouldHideAll = false;
   this.allmediList = this.mediList;
   this.allenergyList = this.energyList;
   this.allactlevList = this.actlevList;
@@ -116,7 +119,7 @@ this.selActList = afd.list('selact-list').valueChanges();
 
  
   ionViewDidLoad() {
-    
+  
     console.log('ionViewDidLoad TagebucheintraegePage');
   }
 

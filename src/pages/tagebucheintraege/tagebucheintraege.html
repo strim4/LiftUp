@@ -20,8 +20,8 @@
 </ion-datetime></ion-icon>
 
 <ion-item>
-<button ion-button (click)="showFilterDate(tdate)" style="color:#455018"  class="btn2" big round icon-start>Einträge nach Datum Anzeigen</button>
-<button ion-button (click)="showAll()" style="color:#455018"  class="btn2" big round icon-start>Alle Einträge Anzeigen</button>
+<p><button ion-button (click)="showFilterDate(tdate)" style="color:#455018"  class="btn2" big round icon-start>Einträge nach Datum Anzeigen</button></p>
+<p><button ion-button (click)="showAll()" style="color:#455018"  class="btn2" big round icon-start>Alle Einträge Anzeigen</button></p>
 </ion-item>
   
 
@@ -30,13 +30,14 @@
   
   
 
- 
+
   <ion-list reorder="true" > 
     <!--
 Liste der gefilterten Medis
 -->
      
-      <h2>Medikamente</h2>
+      <h2 [hidden]="shouldHide">Medikamente</h2>
+    
     <ion-item  *ngFor="let medi of filteredTextMediList | async "  >
 
      
@@ -47,10 +48,12 @@ Liste der gefilterten Medis
    <b> Tag der Einnahme: </b><p>{{medi.date}}</p>
       
     </ion-item>
+    
+    
     <!--
 Liste der gefilterten Energielevel
 -->
-    <h2>Energylevel Filter</h2>
+    <h2 [hidden]="shouldHide">Energylevel Filter</h2>
     <ion-list reorder="true">
       
    
@@ -67,7 +70,7 @@ Liste der gefilterten Energielevel
 Liste der gefilterten Aktivitätslevel
 -->
   </ion-list >
-  <h2>Aktivitätslevel Filter</h2>
+  <h2 [hidden]="shouldHide">Aktivitätslevel Filter</h2>
   <ion-list reorder="true">
     
  
@@ -82,7 +85,7 @@ Liste der gefilterten Aktivitätslevel
 Liste der gefilterten Aktivitäten
 -->
   </ion-list >
-  <h2>Aktivitäten Filter</h2>
+  <h2 [hidden]="shouldHide">Aktivitäten Filter</h2>
   <ion-list reorder="true">
     
  
@@ -92,11 +95,13 @@ Liste der gefilterten Aktivitäten
       <b> Datum: </b><p>{{act.date}}</p>
       
     </ion-item>
+
+    
       <!--
 Liste aller Medis
 -->  
   </ion-list>
-  <h2>Medikamente</h2>
+  <h2 [hidden]="shouldHideAll">Medikamente</h2>
   <ion-list reorder="true">
     
     
@@ -113,7 +118,7 @@ Liste aller Medis
      <!--
 Liste aller Energielevel
 -->  
-  <h2>Energylevel</h2>
+  <h2 [hidden]="shouldHideAll">Energylevel</h2>
   <ion-list reorder="true">
     
  
@@ -128,7 +133,7 @@ Liste aller Energielevel
      <!--
 Liste aller Aktivitätslevel
 -->  
-  <h2>Aktivitätslevel</h2>
+  <h2 [hidden]="shouldHideAll">Aktivitätslevel</h2>
   <ion-list reorder="true">
     
  
@@ -143,7 +148,7 @@ Liste aller Aktivitätslevel
      <!--
 Liste aller Tagesaktivitäten
 -->  
-  <h2>Tagesaktivitäten</h2>
+  <h2 [hidden]="shouldHideAll">Tagesaktivitäten</h2>
  
   <ion-list reorder="true">
     

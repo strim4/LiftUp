@@ -121,7 +121,7 @@ export class AnalysePage {
           datasets: [
               {
                   label: "Energielevel",
-                  fill: false,
+                  fill: true,
                   lineTension: 0.1,
                   backgroundColor: "rgba(75,192,192,0.4)",
                   borderColor: "rgba(75,192,192,1)",
@@ -158,7 +158,7 @@ export class AnalysePage {
                 label: "Aktivitätslevel",
                 fill: true,
                 lineTension: 0.1,
-                backgroundColor: "rgba(75,192,192,0.4)",
+                backgroundColor: "rgba(255,51,204,0.4)",
                 borderColor: "rgba(255,51,204,1)",
                 borderCapStyle: 'butt',
                 borderDash: [],

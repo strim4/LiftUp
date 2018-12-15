@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { ChartModule } from 'angular-highcharts';
 import { FusionCharts } from 'fusioncharts';
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { Pedometer } from '@ionic-native/pedometer';
 
 
 import { MyApp } from './app.component';
@@ -82,6 +84,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     UebMitRueckenPage,
     UebUntRueckenPage,
     UebGanzRueckenPage,
+  
 
     ErgonomiePage,
     StuhlPage,
@@ -113,6 +116,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     HttpClientModule,
     ChartsModule,
     ChartModule ,
+  
     
    
     AngularFireModule.initializeApp(firebaseConfig),
@@ -174,6 +178,8 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     AuthProvider,
     MediProvider,
     FirebaseProvider,
+    BackgroundMode,
+    Pedometer
   ]
 })
 export class AppModule {}

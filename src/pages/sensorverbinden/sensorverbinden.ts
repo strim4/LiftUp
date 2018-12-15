@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { Pedometer } from '@ionic-native/pedometer';
+import { Observable } from 'rxjs/Observable';
+import { Platform, ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the SensorverbindenPage page.
@@ -16,34 +20,14 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'sensorverbinden.html',
 })
 export class SensorverbindenPage {
-  unpairedDevices: any;
-  pairedDevices: any;
-  gettingDevices: Boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private BluetoothSerial: BluetoothSerial, private alertCtrl: AlertController) {
- BluetoothSerial.enable() }
- devices = [];
-btnFindDevices() {
-   this.BluetoothSerial.isEnabled().then(() => {
-   this.BluetoothSerial.discoverUnpaired().then((allDevices) => {
-   this.devices = allDevices;
-   console.log(allDevices);
-});
-});
-}
-
-btnBlueToothConnect() {
-   if (this.devices.length > 0) {
-   //this code connects device which’s position is 0. Change it whatever you 
-   //want.
-   this.BluetoothSerial.connect(this.devices[0].id).subscribe((data) => {
-   console.log('connected', data);
-   }, (error) => {
-   console.log('not connected', error);
-   });
-    }
-    else {
-    console.log('Device List did not genereted yet.');
-    }
+  
+ 
+  start: boolean;
+	PedometerData:any;
+	stepCount : any = 0;
+ 
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public platformCtrl: Platform, private ngZoneCtrl: NgZone,public pedometer: Pedometer, public backgroundMode: BackgroundMode, public navParams: NavParams, private BluetoothSerial: BluetoothSerial, private alertCtrl: AlertController) {
+    this.stepCount = 0;
     }
 
    
@@ -54,79 +38,68 @@ btnBlueToothConnect() {
     console.log('ionViewDidLoad SensorverbindenPage');
     
   }
+  //Alarm beim Aktivieren des BGModus
+  presentActiveAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Hintergrundmodus aktiviert',
+      subTitle: 'LiftUp wird nun im Hintergrund ausgeführt. Erforderlich für den Schrittzähler',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+   //Alarm beim Aktivieren des BGModus
+   presentDeactiveAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Hintergrundmodus deaktiviert',
+      subTitle: 'LiftUp wird nun nicht mehr im Hintergrund ausgeführt.',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
-  startScanning() {
-    this.pairedDevices = null;
-    this.unpairedDevices = null;
-    this.gettingDevices = true;
-    this.BluetoothSerial.discoverUnpaired().then((success) => {
-      this.unpairedDevices = success;
-      this.gettingDevices = false;
-      success.forEach(element => {
-        // alert(element.name);
+  startBgMode(){
+    this.backgroundMode.enable();
+    this.presentActiveAlert();
+  }
+  stopBgMode(){
+    this.backgroundMode.disable();
+    this.presentDeactiveAlert();
+  }
+  fnGetPedoUpdate(){
+   
+  	if (this.platformCtrl.is('cordova')) {
+	  	this.pedometer.startPedometerUpdates()
+		   .subscribe((PedometerData) => {
+		   		this.PedometerData = PedometerData;
+		   		this.ngZoneCtrl.run(() => {
+			        this.stepCount = this.PedometerData.numberOfSteps;
+			   		// this.startDate = new Date(this.PedometerData.startDate);
+				   	// this.endDate = new Date(this.PedometerData.endDate);
+		      	});
+	   });
+	   this.start = true;
+	   this.fnTost('Please Walk🚶‍to Get Pedometer Update.');
+	}else{
+		this.fnTost('This application needs to be run on📱device');
+	}
+
+    
+  }
+
+  fnStopPedoUpdate(){
+  	this.pedometer.stopPedometerUpdates();
+	  this.start = false;
+  }
+
+  fnTost(message) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        position: 'bottom',
+        duration: 3000
       });
-    },
-      (err) => {
-        console.log(err);
-      })
-
-    this.BluetoothSerial.list().then((success) => {
-      this.pairedDevices = success;
-    },
-      (err) => {
-
-      })
-  }
-  success = (data) => alert(data);
-  fail = (error) => alert(error);
-
-  selectDevice(address: any) {
-
-    let alert = this.alertCtrl.create({
-      title: 'Connect',
-      message: 'Do you want to connect with?',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Connect',
-          handler: () => {
-            this.BluetoothSerial.connectInsecure(address).subscribe(this.success, this.fail);
-          }
-        }
-      ]
-    });
-    alert.present();
-
+      toast.present();
   }
 
-  disconnect() {
-    let alert = this.alertCtrl.create({
-      title: 'Disconnect?',
-      message: 'Do you want to Disconnect?',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Disconnect',
-          handler: () => {
-            this.BluetoothSerial.disconnect();
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
 }
 
 
