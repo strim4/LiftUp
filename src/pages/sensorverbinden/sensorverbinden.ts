@@ -67,7 +67,7 @@ export class SensorverbindenPage {
   }
   fnGetPedoUpdate(){
    
-  	if (this.platformCtrl.is('cordova')) {
+  
 	  	this.pedometer.startPedometerUpdates()
 		   .subscribe((PedometerData) => {
 		   		this.PedometerData = PedometerData;
@@ -79,9 +79,7 @@ export class SensorverbindenPage {
 	   });
 	   this.start = true;
 	   this.fnTost('Please Walk🚶‍to Get Pedometer Update.');
-	}else{
-		this.fnTost('This application needs to be run on📱device');
-	}
+
 
     
   }
