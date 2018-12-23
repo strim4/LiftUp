@@ -10,8 +10,11 @@ import { Actlev } from '../../model/actlev/actlev.model';
 import { Energy } from '../../model/energy/energy.model';
 import {Observable} from 'rxjs';
 import { Reference } from '@firebase/database-types';
+import firebase from 'firebase';
 import {FirebaseListObservable} from 'angularfire2/database-deprecated'
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User, AuthCredential } from '@firebase/auth-types';
 /*
   Generated class for the FirebaseProvider provider.
 
@@ -20,16 +23,54 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 */
 @Injectable()
 export class FirebaseProvider {
-  // Referenzen für Firebasetabellen
+
+
+
+  // Userspezifische Referenzen für Firebasetabellen
+  private mediListRef;
+  private actListRef;
+  private selactListRef;
+  private actlevListRef;
+  private actpListRef;
+  private ml;
+  private energyListRef;
+ 
+  //Generelle REferenzen
+  /*
   private mediListRef = this.afd.list<Medi>('medi-list');
   private actListRef = this.afd.list<Act>('act-list');
   private selactListRef = this.afd.list<Selact>('selact-list');
-  private energyListRef = this.afd.list<Energy>('energy-list');
   private actlevListRef = this.afd.list<Actlev>('actlev-list');
   private actpListRef = this.afd.list<Act>('actp-list');
-  private ml = this.afd.list('medi-list');
+  private ml = this.afd.list('medi-list'); */
 
-  constructor(public http: HttpClient, public afd: AngularFireDatabase, private alertCtrl: AlertController) {
+
+
+  //private energyListRef = this.afd.list<Energy>('/energy-list');
+  userId: any;
+  
+
+  constructor(public http: HttpClient, public afd: AngularFireDatabase, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
+    
+  /*  this.afAuth.authState.subscribe(user => {
+      if(user) this.userId = user.uid
+    })
+*/
+   this.afAuth.authState.subscribe(auth =>{
+     this.userId = auth.uid;
+    
+     this.energyListRef = this.afd.list<Energy>(`/energy-list/${this.userId}`);
+    this.mediListRef = this.afd.list<Medi>(`/medi-list/${this.userId}`);
+    this.actListRef = this.afd.list<Act>(`/act-list/${this.userId}`);
+    this.selactListRef = this.afd.list<Selact>(`/selact-list/${this.userId}`);
+    this.actlevListRef = this.afd.list<Actlev>(`/actlev-list/${this.userId}`);
+    this.actpListRef = this.afd.list<Act>(`/actp-list/${this.userId}`);
+    this.ml = this.afd.list(`/medi-list/${this.userId}`);
+      
+    });
+
+    
+
    
   }
 

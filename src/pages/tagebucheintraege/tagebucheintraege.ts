@@ -14,6 +14,7 @@ import { Actlev } from '../../model/actlev/actlev.model';
 import { map } from 'rxjs/operators';
 
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
+import { AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireObject} from 'angularfire2/database';
 
 
@@ -56,20 +57,30 @@ shouldHideAll: boolean;
 
   public aMediList: Observable<any> ;
   
-  
+  userId: string;
 
   
-  constructor(public navCtrl: NavController, public afd: AngularFireDatabase,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
- //Listen aus FIrebase abrufen
-this.mediList = afd.list<Medi>('medi-list').valueChanges();
+  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, public afd: AngularFireDatabase,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
+    
+    
+    this.afAuth.authState.subscribe(auth =>{
+      this.userId = auth.uid;
+     
+      //Listen aus FIrebase abrufen
+this.mediList = afd.list<Medi>(`/medi-list/${this.userId}`).valueChanges();
 this.shouldHide = true;
-this.energyList = afd.list<Energy>('energy-list').valueChanges();
-this.actlevList = afd.list<Actlev>('actlev-list').valueChanges();
-this.selActList = afd.list('selact-list').valueChanges();
+//this.energyList = afd.list<Energy>('energy-list').valueChanges();
+this.energyList = this.afd.list<Energy>(`/energy-list/${this.userId}`).valueChanges();
+this.actlevList = afd.list<Actlev>(`/actlev-list/${this.userId}`).valueChanges();
+this.selActList = afd.list(`/selact-list/${this.userId}`).valueChanges();
 this.shouldHideAll = true;
+       
+     });
+ 
 
 
-      
+
+
 
 
   }

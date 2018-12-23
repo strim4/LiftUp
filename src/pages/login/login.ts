@@ -44,11 +44,14 @@ public loading: Loading;
       });
   }
 //Login Funktion
-  loginUser(): Promise<any> {
+  loginUser(): void{
     const email: string = this.loginForm.value.email;
     const password: string = this.loginForm.value.password;
-   this.navCtrl.setRoot(HomePage);
-    return firebase.auth().signInWithEmailAndPassword(email, password);
+  
+    firebase.auth().signInWithEmailAndPassword(email, password).then(
+      
+    );
+    this.navCtrl.setRoot(HomePage);
     };
   
 // Zu Registrierung wechseln

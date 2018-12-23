@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Act } from '../../model/act/act.model';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { AlertController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * Generated class for the AddactPage page.
@@ -26,7 +27,12 @@ export class AddactPage {
     
   };
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public firebaseProvider: FirebaseProvider) {
+  userId: string;
+
+  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, public alertCtrl: AlertController, public navParams: NavParams, public firebaseProvider: FirebaseProvider) {
+    this.afAuth.authState.subscribe(user => {
+      if(user) this.userId = user.uid
+    })
   }
 
   ionViewDidLoad() {

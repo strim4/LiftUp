@@ -10,6 +10,7 @@ import { ChartModule } from 'angular-highcharts';
 import { FusionCharts } from 'fusioncharts';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { Pedometer } from '@ionic-native/pedometer';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 import { MyApp } from './app.component';
@@ -176,6 +177,8 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     BluetoothSerial,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+    AngularFireAuth,
+    
     MediProvider,
     FirebaseProvider,
     BackgroundMode,

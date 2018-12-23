@@ -7,7 +7,7 @@ import { Act } from '../../model/act/act.model';
 import { Selact } from '../../model/selact/selact.model';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
 import { filter } from 'rxjs/operators';
-
+import { AngularFireAuth } from 'angularfire2/auth';
 /**
  * Generated class for the TagesbeschaftigungPage page.
  *
@@ -35,15 +35,26 @@ export class TagesbeschaftigungPage {
  
     addactPage = AddactPage;
     actList: Observable<Act[]>;
+    selactListRef: Observable<Selact[]>;
     checkedActList: Observable<any>;
     selectedArray :any = [];
    
+    userId: string;
+
+
+  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, public navParams: NavParams, public alertCtrl: AlertController,  public afd: AngularFireDatabase, public firebaseProvider: FirebaseProvider) {
+  
+    this.afAuth.authState.subscribe(auth =>{
+      this.userId = auth.uid;
+      //Tagesaktivitäten abrufen
+    this.actList = afd.list<Act>(`/act-list/${this.userId}`).valueChanges();
+  
+      
+       
+     });
+
+   
     
-
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,  public afd: AngularFireDatabase, public firebaseProvider: FirebaseProvider) {
-   //Tagesaktivitäten abrufen
-    this.actList = afd.list<Act>('act-list').valueChanges();
   }
 
   
@@ -57,7 +68,8 @@ export class TagesbeschaftigungPage {
      //this.selectedArray.push(this.adate, data.title);
        this.selact.title = data.title;
        this.selact.date = this.adate;
-       this.firebaseProvider.addSelact(this.selact)
+      this.firebaseProvider.addSelact(this.selact);
+     
        
      } else {/*
       let newArray = this.selectedArray.filter(function(el) {

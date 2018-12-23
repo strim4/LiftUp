@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { ViewChild } from '@angular/core';
 
 import { Chart } from 'chart.js';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 
@@ -48,18 +49,25 @@ export class AnalysePage {
 
   
 
+  userId: any;
   
   
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams, public afd: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, public afd: AngularFireDatabase) {
 
-   
-   
-    this.energyList = afd.list<Energy>('energy-list').valueChanges();
-    this.energyList.subscribe(energies => this.energies = energies);
+    this.afAuth.authState.subscribe(auth =>{
+      this.userId = auth.uid;
+     
+     
 
-    this.actList = afd.list<Actlev>('actlev-list').valueChanges();
-    this.actList.subscribe(activities => this.activities = activities);
+     this.energyList = afd.list<Energy>(`/energy-list/${this.userId}`).valueChanges();
+     this.energyList.subscribe(energies => this.energies = energies);
+ 
+     this.actList = afd.list<Actlev>(`/actlev-list/${this.userId}`).valueChanges();
+     this.actList.subscribe(activities => this.activities = activities);
+       
+     });
+   
+
  
 
    
