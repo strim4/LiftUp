@@ -38,7 +38,7 @@ $app-direction: ltr;
 $colors: (
   primary:    #a4d5a3,
   secondary:  #08443c,
-  danger:     #ff8f00,
+  danger:     #f8f8f8,
   light:      #cee4a3,
   dark:       #030c0b
 );
@@ -53,6 +53,9 @@ $toolbar-background:#08443c;
 $toolbar-ios-text-color:#08443c;
 $toolbar-wd-text-color:#08443c;
 $toolbar-md-text-color:#08443c;
+
+$card-md-background-color: #cee4a3;
+$card-ios-background-color: #cee4a3;
 
 
 $toolbar-md-title-text-color: #a4d5a3;
@@ -104,6 +107,8 @@ margin-bottom:10px;
   
   
 };
+
+
 
 .hide {
   visibility: hidden;
