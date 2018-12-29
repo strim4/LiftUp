@@ -68,12 +68,12 @@ shouldHideAll: boolean;
      
       //Listen aus FIrebase abrufen
 this.mediList = afd.list<Medi>(`/medi-list/${this.userId}`).valueChanges();
-this.shouldHide = true;
+
 //this.energyList = afd.list<Energy>('energy-list').valueChanges();
 this.energyList = this.afd.list<Energy>(`/energy-list/${this.userId}`).valueChanges();
 this.actlevList = afd.list<Actlev>(`/actlev-list/${this.userId}`).valueChanges();
 this.selActList = afd.list(`/selact-list/${this.userId}`).valueChanges();
-this.shouldHideAll = true;
+
        
      });
  
@@ -90,6 +90,9 @@ this.shouldHideAll = true;
 
 //Filter für das Datum der Tagebucheinträge
  showFilterDate(date: Date){
+this.shouldHide = false;
+this.shouldHideAll = true;
+
   this.filteredTextMediList = this.mediList
   .map(receita => {        
     return receita.filter(r => {          
@@ -119,7 +122,8 @@ this.shouldHideAll = true;
  }
 //Alle Einträge anzeigen
  showAll(){
-  this.shouldHideAll = false;
+this.shouldHideAll = false;
+this.shouldHide = true;
   this.allmediList = this.mediList;
   this.allenergyList = this.energyList;
   this.allactlevList = this.actlevList;
@@ -130,6 +134,9 @@ this.shouldHideAll = true;
 
  
   ionViewDidLoad() {
+    this.shouldHide = true;
+this.shouldHideAll = true;
+
   
     console.log('ionViewDidLoad TagebucheintraegePage');
   }

@@ -6,8 +6,12 @@ import { BeactivePage } from '../beactive/beactive';
 import { TagebuchPage } from '../tagebuch/tagebuch';
 import { AuthProvider } from '../../providers/auth/auth';
 
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { SchmerzenmeldenPage } from '../schmerzenmelden/schmerzenmelden';
 import { SensorverbindenPage } from '../sensorverbinden/sensorverbinden';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -21,8 +25,25 @@ export class HomePage {
   sensorverbindenPage = SensorverbindenPage;
   schmerzenmeldenPage = SchmerzenmeldenPage;
 
-  constructor(public navCtrl: NavController, public authProvider: AuthProvider) {
+  userId: any;
 
+  constructor(public navCtrl: NavController, public authProvider: AuthProvider, private afAuth: AngularFireAuth) {
+ 
+   
+
+  }
+
+  async logout(): Promise<any>{
+   
+  
+    this.navCtrl.push(LoginPage);
+      return this.afAuth.auth.signOut();
+      
+       
+    
+     
+   
+   // return this.afAuth.auth.signOut();
   }
 
 }

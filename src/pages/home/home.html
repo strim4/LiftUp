@@ -4,8 +4,15 @@
     <button ion-button  menuToggle>
       <ion-icon name="menu" ></ion-icon>
     </button>
+ 
     <ion-title>  Home </ion-title>
+    <ion-buttons end>
+    <button ion-button (click)= 'logout()'  >
+        <ion-icon name="log-out" ></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+ 
 </ion-header>
 
 <ion-content padding>
@@ -15,4 +22,5 @@
   <button ion-button class="btn" style="color:#030c0b" [navPush]="tagebuchPage" large round >Tagebuch</button><br><br>
   <button ion-button class="btn" style="color:#030c0b"  [navPush]="schmerzenmeldenPage" large round>Schmerzen melden</button><br><br>
   <button ion-button class="btn" style="color:#030c0b"  [navPush]="sensorverbindenPage" large round>Schrittzähler</button>
+  
 </ion-content>
