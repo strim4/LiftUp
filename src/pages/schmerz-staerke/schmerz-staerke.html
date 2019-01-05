@@ -7,12 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>schmerz-staerke</ion-title>
+    <ion-title>Schmerzstärke</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <h1>Wie stark ist der Schmerz?</h1>
+  <ion-img [width]="325" [height]="60" src="../../assets/imgs/Schmerzstaerke.png" class="img"></ion-img>
+  <ion-item  >
+      <ion-range min="0" max="10" step="1" pin="true" snaps="true" [(ngModel)]="saturation" color="secondary">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>10</ion-label>
+      </ion-range>
+    </ion-item >
+    
+   
+    <ion-row>
+        <ion-col width-50 style="text-align: center">
+      <button ion-button class="btn2" style="color:#030c0b" big round icon-start>
+          <ion-icon name="add-circle"></ion-icon>
+        Speichern</button>
+      </ion-col>
+      
+      </ion-row>
 </ion-content>

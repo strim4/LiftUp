@@ -33,18 +33,16 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-// Basisfarben der App
-
 $colors: (
   primary:    #a4d5a3,
   secondary:  #08443c,
-  danger:     #f8f8f8,
+  danger:     #ff8f00,
   light:      #cee4a3,
   dark:       #030c0b
 );
 
 
-// Überschreiben von Standardvariabeln
+
 $text-color: #08443c;
 $action-sheet-md-button-text-color: #08443c;
 $action-sheet-ios-button-text-color: #08443c;
@@ -53,9 +51,6 @@ $toolbar-background:#08443c;
 $toolbar-ios-text-color:#08443c;
 $toolbar-wd-text-color:#08443c;
 $toolbar-md-text-color:#08443c;
-
-$card-md-background-color: #cee4a3;
-$card-ios-background-color: #cee4a3;
 
 
 $toolbar-md-title-text-color: #a4d5a3;
@@ -70,7 +65,7 @@ $menu-wp-background: primary;
 display:inline-block;
 margin-bottom:10px;
 }
-// CSS Klasse für Buttons
+
 .btn{
   width: 100%;
   
@@ -83,19 +78,13 @@ margin-bottom:10px;
   
 };
 
-.large{
-  font-size: 50px;
-  
-  
-};
-// CSS Klasse für Bilder
  .img {
  
   margin: auto;
   display: block;
   }
   
-// CSS Klasse für zweite Button Klasse
+
 .btn2{
 
   
@@ -108,17 +97,11 @@ margin-bottom:10px;
   
 };
 
-
-
-.hide {
-  visibility: hidden;
-}
-// Klasse für zentrierte Buttons
 .centbtn{
   margin-left: auto;
   margin-right: auto;
 }
-// Klasse für die Navigation
+
 .navbarStyle{
   border-bottom: 5px color($colors, secondary) solid;
   // box-shadow: 0px 5px 5px color($colors, secondary);

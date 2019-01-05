@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SchmerzStaerkePage } from '../schmerz-staerke/schmerz-staerke';
+import { SchmerzLokalisationPage } from '../schmerz-lokalisation/schmerz-lokalisation';
+import { NotizenPage } from '../notizen/notizen';
 
 /**
  * Generated class for the SchmerzenmeldenPage page.
@@ -14,6 +17,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'schmerzenmelden.html',
 })
 export class SchmerzenmeldenPage {
+
+  myDate: String = new Date().toISOString();
+  
+  schmerzStaerkePage = SchmerzStaerkePage;
+  schmerzLokalisationPage = SchmerzLokalisationPage;
+  notizenPage = NotizenPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
