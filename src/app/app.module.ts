@@ -30,6 +30,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from './credentials';
 
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { DatePicker } from '@ionic-native/date-picker';
+
 import { UebungenPage } from '../pages/uebungen/uebungen';
 import { UebArbeitsplatzPage } from '../pages/ueb-arbeitsplatz/ueb-arbeitsplatz';
 import { LockerungsUebPage } from '../pages/lockerungs-ueb/lockerungs-ueb';
@@ -181,6 +184,8 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     AngularFireAuth,
+    LocalNotifications,
+    DatePicker,
     
     MediProvider,
     FirebaseProvider,
