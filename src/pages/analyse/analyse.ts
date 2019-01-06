@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"; 
 import { Energy } from '../../model/energy/energy.model';
 import { Actlev } from '../../model/actlev/actlev.model';
+import { Pain } from '../../model/pain/pain.model';
 import { Observable } from 'rxjs/Observable';
 import { ViewChild } from '@angular/core';
 
@@ -30,8 +31,10 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 export class AnalysePage {
   @ViewChild('lineCanvas') lineCanvas;
   @ViewChild('lineactCanvas') lineactCanvas;
+  @ViewChild('linepainCanvas') linepainCanvas;
   lineChart: any;
   lineactChart: any;
+  linepainChart: any;
 
   energyList: Observable<Energy[]>;
   energies: Energy[] = [];
@@ -42,6 +45,11 @@ export class AnalysePage {
   activities: Actlev[] = [];
   acval: any[] = [];
   acdate: any[] = [];
+
+  painList: Observable<Pain[]>;
+  pains: Pain[] = [];
+  pval: any[] = [];
+  pdate: any[] = [];
 
   date: any[] = [];
 
@@ -64,6 +72,9 @@ export class AnalysePage {
  
      this.actList = afd.list<Actlev>(`/actlev-list/${this.userId}`).valueChanges();
      this.actList.subscribe(activities => this.activities = activities);
+
+     this.painList = afd.list<Pain>(`/pain-list/${this.userId}`).valueChanges();
+     this.painList.subscribe(pains => this.pains = pains);
        
      });
    
@@ -76,6 +87,7 @@ export class AnalysePage {
   show(){
     this.acdate = [];
     this.endate = [];
+    this.pdate = [];
     
   // Aus dem Elementen des Energy Observable ein Array erstellen
     this.energyList.subscribe(energies => this.energies = energies);
@@ -99,23 +111,42 @@ export class AnalysePage {
        this.endate.push(this.energies[i].date) }
       
 
-         // Aus dem Elementen des Energy Observable ein Array erstellen und nach Datum sortieren
+         // Aus dem Elementen des Activitätslevel Observable ein Array erstellen und nach Datum sortieren
     this.actList.subscribe(activities => this.activities = activities);
     this.activities.sort((a, b) => a.date <= b.date ? -1 : 1);
    
 
-    //Die Childvalues "energielevel" in einen neuen Array speichern
+    //Die Childvalues "aktivitätslevel" in einen neuen Array speichern
     for(let i=0;i<this.activities.length ;i++){  
      // this.enval.push(this.energies[i].enlev)
       this.acval.push(this.activities[i].actlev)
      
     }
 
-      //Die Childvalues Energy "Datum" in einen neuen Array speichern
+      //Die Childvalues Aktivitätslevel "Datum" in einen neuen Array speichern
     for(let i=0;i<this.activities.length ;i++){  
       // this.enval.push(this.energies[i].enlev)
        this.acdate.push(this.activities[i].date)
        console.log(this.acdate);}
+
+
+        // Aus dem Elementen des Schmerzlevels Observable ein Array erstellen und nach Datum sortieren
+    this.painList.subscribe(pains => this.pains = pains);
+    this.pains.sort((a, b) => a.date <= b.date ? -1 : 1);
+   
+
+    //Die Childvalues "Schmerzlevels" in einen neuen Array speichern
+    for(let i=0;i<this.pains.length ;i++){  
+     // this.enval.push(this.energies[i].enlev)
+      this.pval.push(this.pains[i].plev)
+     
+    }
+
+      //Die Childvalues Schmerzlevels "Datum" in einen neuen Array speichern
+    for(let i=0;i<this.pains.length ;i++){  
+      // this.enval.push(this.energies[i].enlev)
+       this.pdate.push(this.pains[i].date)
+       console.log(this.pdate);}
 
 
     
@@ -190,7 +221,43 @@ export class AnalysePage {
 
 });
 
+this.linepainChart = new Chart(this.linepainCanvas.nativeElement, {
+ 
+  type: 'line',
+  data: {
+      labels: this.pdate,
+      datasets: [
+          {
+              label: "Schmerzlevel",
+              fill: true,
+              lineTension: 0.1,
+              backgroundColor: "rgba(255,51,204,0.4)",
+              borderColor: "rgba(255,51,204,1)",
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pointBorderColor: "rgba(255,51,204,1)",
+              pointBackgroundColor: "#fff",
+              pointBorderWidth: 1,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: "rgba(255,51,204,1)",
+              pointHoverBorderColor: "rgba(220,220,220,1)",
+              pointHoverBorderWidth: 2,
+              pointRadius: 1,
+              pointHitRadius: 10,
+              data: this.pval,
+              spanGaps: false,
+          },
+          
+      ]
+  }
+
+});
+
    }
+
+   
     
     
 
