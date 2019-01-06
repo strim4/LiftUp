@@ -1,0 +1,126 @@
+<!--
+  Generated template for the SchmerzeintraegePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Schmerzeinträge</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>Wählen Sie den gewünschten Tag:</h2>
+  <ion-icon name="calendar" class="large"><ion-datetime   displayFormat="DD-MM-YYYY" id="tdate" [(ngModel)]="tdate ">
+ </ion-datetime></ion-icon>
+ 
+ <ion-item>
+ <p><button ion-button (click)="showFilterDate(tdate)" style="color:#030c0b"  class="btn2" big round icon-start>Einträge nach Datum Anzeigen</button></p>
+ <p><button ion-button (click)="showAll()" style="color:#030c0b"  class="btn2" big round icon-start>Alle Einträge Anzeigen</button></p>
+ </ion-item>
+ <div [hidden]="shouldHide">
+ 
+      <!--
+ Liste der gefilterten Notizen
+ --> 
+ 
+ <ion-list reorder="true">
+   <p>   </p>
+     <h2 >Notizen </h2>
+     <ion-item-sliding *ngFor="let note of filteredNoteList | async " >
+       <ion-item>
+         <ion-card>
+               <ion-card-content>
+                 
+                 <b>Tag des Eintrags</b>
+                 <p>{{note.date}}</p>
+                 <b>Notiz</b>
+                 <p>{{note.note}}</p>
+               
+               </ion-card-content>
+             
+             </ion-card>
+           </ion-item>
+     </ion-item-sliding>
+   </ion-list> 
+
+         <!--
+ Liste der gefilterten Schmerzlevel
+ --> 
+ 
+ <ion-list reorder="true">
+  <p>   </p>
+    <h2 >Schmerzlevel </h2>
+    <ion-item-sliding *ngFor="let pain of filteredPainList | async " >
+      <ion-item>
+        <ion-card>
+              <ion-card-content>
+                
+                <b>Tag des Eintrags</b>
+                <p>{{pain.date}}</p>
+                <b>Schmerzstärke</b>
+                <p>{{pain.plev}} von 10</p>
+              
+              </ion-card-content>
+            
+            </ion-card>
+          </ion-item>
+    </ion-item-sliding>
+  </ion-list> 
+
+</div>
+
+<div   [hidden]="shouldHideAll" >
+    <!--
+ Liste der aller Notizen
+ --> 
+ 
+ <ion-list reorder="true">
+    <p>   </p>
+      <h2 >Notizen </h2>
+      <ion-item-sliding *ngFor="let note of allNoteList | async " >
+        <ion-item>
+          <ion-card>
+                <ion-card-content>
+                  
+                  <b>Tag des Eintrags</b>
+                  <p>{{note.date}}</p>
+                  <b>Notiz</b>
+                  <p>{{note.note}}</p>
+                
+                </ion-card-content>
+              
+              </ion-card>
+            </ion-item>
+      </ion-item-sliding>
+    </ion-list> 
+
+  <!-- Liste aller Schmerzlevel -->
+  
+  <ion-list reorder="true">
+      <p>   </p>
+      <h2 >Schmerzlevel</h2>
+    <ion-item-sliding *ngFor="let pain of allPainList | async " >
+      <ion-item>
+        <ion-card>
+              <ion-card-content>
+                
+                <b>Tag des Eintrags</b>
+                <p>{{pain.date}}</p>
+                <b>Schmerzstärke</b>
+                <p>{{pain.plev}} von 10</p>
+              </ion-card-content>
+            
+            </ion-card>
+          </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  </div>
+   
+
+</ion-content>

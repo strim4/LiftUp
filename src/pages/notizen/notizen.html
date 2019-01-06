@@ -16,12 +16,18 @@
 <ion-content padding>
   <h1>Notizen erfassen</h1>
   <ion-item>
-      <ion-textarea placeholder="Losschreiben"></ion-textarea>
+      <ion-textarea [(ngModel)]="note.note" placeholder="Losschreiben"></ion-textarea>
     </ion-item>
 
+    <ion-item>
+      <ion-label color="secondary">Tag des Eintrages:</ion-label>
+      <ion-input type="date" placeholder="12.12.2018" clearInput="true" [(ngModel)]="note.date"></ion-input>
+    </ion-item>
+    
+   
     <ion-row>
         <ion-col width-50 style="text-align: center">
-      <button ion-button class="btn2" style="color:#030c0b" big round icon-start>
+      <button ion-button class="btn2" style="color:#030c0b" (click)="addNote()" big round icon-start>
           <ion-icon name="add-circle"></ion-icon>
         Speichern</button>
       </ion-col>

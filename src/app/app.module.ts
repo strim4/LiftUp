@@ -57,6 +57,7 @@ import { TagebucheintraegePage } from '../pages/tagebucheintraege/tagebucheintra
 import { SchmerzStaerkePage } from '../pages/schmerz-staerke/schmerz-staerke';
 import { SchmerzLokalisationPage } from '../pages/schmerz-lokalisation/schmerz-lokalisation';
 import { NotizenPage } from '../pages/notizen/notizen';
+import { SchmerzeintraegePage } from '../pages/schmerzeintraege/schmerzeintraege';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -71,6 +72,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     BeactivePage,
     TagebuchPage,
     SchmerzenmeldenPage,
+    SchmerzeintraegePage,
     SensorverbindenPage,
     AboutePage,
     AnalysePage,
@@ -131,6 +133,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     BeactivePage,
     TagebuchPage,
     SchmerzenmeldenPage,
+    SchmerzeintraegePage,
     SensorverbindenPage,
     AboutePage,
     AnalysePage,

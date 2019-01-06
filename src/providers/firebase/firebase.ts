@@ -8,6 +8,8 @@ import { Selact } from '../../model/selact/selact.model';
 import { Act } from '../../model/act/act.model';
 import { Actlev } from '../../model/actlev/actlev.model';
 import { Energy } from '../../model/energy/energy.model';
+import { Pain } from '../../model/pain/pain.model';
+import { Note } from '../../model/note/note.model';
 import {Observable} from 'rxjs';
 import { Reference } from '@firebase/database-types';
 import firebase from 'firebase';
@@ -34,6 +36,8 @@ export class FirebaseProvider {
   private actpListRef;
   private ml;
   private energyListRef;
+  private painListRef;
+  private noteListRef;
  
   //Generelle REferenzen
   /*
@@ -66,6 +70,8 @@ export class FirebaseProvider {
     this.actlevListRef = this.afd.list<Actlev>(`/actlev-list/${this.userId}`);
     this.actpListRef = this.afd.list<Act>(`/actp-list/${this.userId}`);
     this.ml = this.afd.list(`/medi-list/${this.userId}`);
+    this.painListRef = this.afd.list(`/pain-list/${this.userId}`);
+    this.noteListRef = this.afd.list(`/note-list/${this.userId}`);
       
     });
 
@@ -99,6 +105,17 @@ addSelact(selact: Selact) {
 addEnergy(energy: Energy) {
   return this.energyListRef.push(energy);
  // this.afd.list('/medis-list/').push(medi);
+}
+
+//Schmerzstärke speichern
+addPain(pain: Pain) {
+  return this.painListRef.push(pain);
+ // this.afd.list('/medis-list/').push(medi);
+}
+//Schmerznotiz speichern
+addNote(note: Note) {
+  return this.noteListRef.push(note);
+
 }
 // Aktivitätslevel speichern
 addActLev(actlev: Actlev) {
