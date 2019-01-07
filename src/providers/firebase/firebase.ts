@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Medi } from '../../model/medi/medi.model';
 import { Selact } from '../../model/selact/selact.model';
+import { Steps } from '../../model/steps/steps.model';
 
 import { Act } from '../../model/act/act.model';
 import { Actlev } from '../../model/actlev/actlev.model';
@@ -38,6 +39,7 @@ export class FirebaseProvider {
   private energyListRef;
   private painListRef;
   private noteListRef;
+  private stepsListRef;
  
   //Generelle REferenzen
   /*
@@ -72,6 +74,7 @@ export class FirebaseProvider {
     this.ml = this.afd.list(`/medi-list/${this.userId}`);
     this.painListRef = this.afd.list(`/pain-list/${this.userId}`);
     this.noteListRef = this.afd.list(`/note-list/${this.userId}`);
+    this.stepsListRef = this.afd.list(`/steps-list/${this.userId}`);
       
     });
 
@@ -121,6 +124,12 @@ addNote(note: Note) {
 addActLev(actlev: Actlev) {
   return this.actlevListRef.push(actlev);
  // this.afd.list('/medis-list/').push(medi);
+}
+
+//Schmerzstärke speichern
+addSteps(steps: Steps) {
+  return this.stepsListRef.push(steps);
+
 }
 
 

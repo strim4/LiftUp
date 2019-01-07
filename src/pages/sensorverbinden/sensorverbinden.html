@@ -18,10 +18,11 @@
 
 <ion-content padding>
   
-
- 
+<h3> Zu lange Sitzen schadet dir! </h3>
+<p>Es ist deshalb wichtig, dass du dich regelmässig bewegst. Pro Tag solltest Du mindestens 6'000 Schritte tun. Mit dem integrierten Schrittzähler kannst du stehts den Überblick zu den zurückgelegten Schritten behalten.</p>
+ <p>Damit der Schrittzähler weiterläuft, auch wenn du LiftUp geschlossen hast, muss der Hintergroundmodus aktiviert werden.</p>
   <button ion-button class="btn" style="color:#030c0b" round (click)="startBgMode()">Hintergrundmodus aktivieren</button>
-  <button ion-button class="btn" style="color:#030c0b" round (click)="startPedo()">Schrittzähler starten</button>
+  
   
   <button ion-button class="btn" style="color:#030c0b" round (click)="stopBgMode()">Hintergrundmodus deaktivieren</button>
 
@@ -43,7 +44,19 @@
     </ion-col>
     <ion-col>
     </ion-col>
-  </ion-row>s
+  </ion-row>
+  <ion-item>
+      <ion-label color="secondary">Tag der Schritte:</ion-label>
+      <ion-input type="date" clearInput="true" [(ngModel)]="tdate"></ion-input>
+    </ion-item>
+  <ion-row>
+      <ion-col width-50 style="text-align: center">
+    <button ion-button (click)="addSteps()" class="btn2" style="color:#030c0b" big round icon-start>
+        <ion-icon name="add-circle"></ion-icon>
+       Schritte Speichern</button>
+    </ion-col>
+    
+    </ion-row>  
  
 
 </ion-content>

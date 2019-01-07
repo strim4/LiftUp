@@ -17,12 +17,16 @@
   
   
   <ion-content padding>
-    <button ion-button (click)="show()" style="color:#030c0b"  class="btn2" big round icon-start>Show</button>
+    <h3> Hier findest du grafische Auswertungen zu deinen Tagebucheinträgen und der Schmerzdokumentation.</h3>
+    <p>Damit die Verlaufsdiagramme angezeigt werden, müssen entsprechende Einträge im Tagebuch und in der Schmerzdokumentation erfasst werden.</p>
+    <button ion-button (click)="show()" style="color:#030c0b"  class="btn2" big round icon-start>Auswertungen generieren</button>
+    <div [hidden]="shouldHide">   
     <ion-card>
         <ion-card-header>
-         Energielevel
+         Energielevel 
         </ion-card-header>
         <ion-card-content>
+            (Einträge werden im Tagebuch unter Energielevel erfasst)
           <canvas #lineCanvas></canvas>
         </ion-card-content>
       </ion-card>
@@ -31,17 +35,29 @@
          Aktivitätslevel
         </ion-card-header>
         <ion-card-content>
+            (Einträge werden im Tagebuch unter Aktivitätslevel erfasst)
           <canvas #lineactCanvas></canvas>
         </ion-card-content>
       </ion-card>
       <ion-card>
           <ion-card-header>
-           Schmerzlevel
+           Schmerzlevel  
           </ion-card-header>
           <ion-card-content>
+              (Einträge werden in der Schmerzdokumentation unter Schmerzlevel erfasst)
             <canvas #linepainCanvas></canvas>
           </ion-card-content>
         </ion-card>
+        <ion-card>
+            <ion-card-header>
+             Schritte
+            </ion-card-header>
+            <ion-card-content>
+                (Einträge werden durch den Schrittzähler generiert)
+              <canvas #barstepCanvas></canvas>
+            </ion-card-content>
+          </ion-card>
+        </div>
       
   
   </ion-content>

@@ -1,11 +1,16 @@
 import { Component, NgZone } from '@angular/core';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, DateTime } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { Pedometer } from '@ionic-native/pedometer';
 import { Observable } from 'rxjs/Observable';
 import { Platform, ToastController } from 'ionic-angular';
+import { FirebaseProvider } from './../../providers/firebase/firebase';
+import {  AngularFireList } from "angularfire2/database"; 
+import { Steps } from '../../model/steps/steps.model';
+import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util';
+
 
 /**
  * Generated class for the SensorverbindenPage page.
@@ -20,13 +25,21 @@ import { Platform, ToastController } from 'ionic-angular';
   templateUrl: 'sensorverbinden.html',
 })
 export class SensorverbindenPage {
+  //Datenmodell für die Schritte
+  steps: Steps = {
+    steps: '',
+ 
+    date:  new Date()
+    
+  };
   
+  tdate = new Date();
  
   start: boolean;
 	PedometerData:any;
 	stepCount : any = 0;
  
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public platformCtrl: Platform, private ngZoneCtrl: NgZone,public pedometer: Pedometer, public backgroundMode: BackgroundMode, public navParams: NavParams, private BluetoothSerial: BluetoothSerial, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public firebaseProvider: FirebaseProvider, public toastCtrl: ToastController, public platformCtrl: Platform, private ngZoneCtrl: NgZone,public pedometer: Pedometer, public backgroundMode: BackgroundMode, public navParams: NavParams, private BluetoothSerial: BluetoothSerial, private alertCtrl: AlertController) {
     this.stepCount = 0;
     }
 
@@ -57,14 +70,19 @@ export class SensorverbindenPage {
     alert.present();
   }
 
+  //Hintergrundmodus aktivieren
+
   startBgMode(){
     this.backgroundMode.enable();
     this.presentActiveAlert();
   }
+  //Hintergrundmodus deaktivieren
   stopBgMode(){
     this.backgroundMode.disable();
     this.presentDeactiveAlert();
   }
+
+  //Schrittzähler starten
   fnGetPedoUpdate(){
    
   
@@ -78,17 +96,17 @@ export class SensorverbindenPage {
 		      	});
 	   });
 	   this.start = true;
-	   this.fnTost('Please Walk🚶‍to Get Pedometer Update.');
+	   this.fnTost('Damit der Zähler hochgeht 🚶‍ muss du dich bewegen.');
 
 
     
   }
-
+//Schrittzähler stoppen
   fnStopPedoUpdate(){
   	this.pedometer.stopPedometerUpdates();
 	  this.start = false;
   }
-
+//Medlung beim Starten des Schrittzählers
   fnTost(message) {
       let toast = this.toastCtrl.create({
         message: message,
@@ -98,6 +116,28 @@ export class SensorverbindenPage {
       toast.present();
   }
 
+  //Alarm beim Speichern
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Speichern',
+      subTitle: 'Der Eintrag wurde gespeichert!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+// Schritte speichern
+
+ addSteps(){
+   
+    this.steps  = {
+      steps: this.stepCount,
+      date: this.tdate
+
+    }
+ 
+this.firebaseProvider.addSteps(this.steps);
+   this.presentAlert();
+  }
 }
 
 
