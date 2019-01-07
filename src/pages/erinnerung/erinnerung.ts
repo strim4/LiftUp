@@ -19,22 +19,41 @@ declare var cordova;
 })
 export class ErinnerungPage {
   data = { title:'', description:'', date:'', time:'' };
-  constructor(public navCtrl: NavController, public navParams: NavParams, private plt: Platform, private localNotifications: LocalNotifications, alertCtrl: AlertController) {
+ 
+  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private localNotifications: LocalNotifications, public alertCtrl: AlertController) {
   
   }
 
-  submit(){
-    var date = new Date(this.data.date+" "+this.data.time);
+  submit() {
+    console.log(this.data);
+    let date = new Date(this.data.date+" "+this.data.time);
+    
     console.log(date);
     this.localNotifications.schedule({
-      text: 'Verzögert',
-      
-      trigger: {every: { hour: 17, minute: 41, second: 15 }, count: 1 },
-      led: 'FF0000',
-      sound: null
-   });
+       text: 'Delayed ILocalNotification',
+       
+       trigger: {at: new Date(new Date(date))},
+       led: 'FF0000',
+       sound: this.setSound(),
+    });
+    let alert = this.alertCtrl.create({
+      title: 'Congratulation!',
+      subTitle: 'Notification setup successfully at '+date,
+      buttons: ['OK']
+    });
+    alert.present();
+    this.data = { title:'', description:'', date:'', time:'' };
   }
 
+  setSound() {
+    if (this.platform.is('android')) {
+      return 'file://assets/sounds/Rooster.mp3'
+    } else {
+      return 'file://assets/sounds/Rooster.caf'
+    }
+  }
+
+//Alte Methode
 set(){
   this.localNotifications.schedule({
     text: 'Delayed ILocalNotification',

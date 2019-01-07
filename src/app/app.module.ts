@@ -31,6 +31,7 @@ import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from './credentials';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
+
 import { DatePicker } from '@ionic-native/date-picker';
 
 import { UebungenPage } from '../pages/uebungen/uebungen';

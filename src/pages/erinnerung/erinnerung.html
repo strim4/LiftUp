@@ -17,28 +17,33 @@
 
 
 <ion-content padding>
+  <h3>Ein Körper braucht bewegung!</h3>
+  <p> Damit du nicht vergisst dich zu bewegen, kannst du dir hier Erinnerungen erstellen, welche von LiftUp als Pushnachricht versendet werden.</p>
+    
+
     <form (ngSubmit)="submit()">
-        <ion-list>
-          <ion-item>
-            <ion-label floating>Title</ion-label>
-            <ion-input type="text" [(ngModel)]="data.title" name="title"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Description</ion-label>
-            <ion-input type="text" [(ngModel)]="data.description" name="description"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Date</ion-label>
-            <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="data.date" name="date"></ion-datetime>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>Time</ion-label>
-            <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="data.time" name="time"></ion-datetime>
-          </ion-item>
-        </ion-list>
-        <div padding>
-          <button ion-button full round>Add Notification</button>
-        </div>
-      </form>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input type="text" [(ngModel)]="data.title" name="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-input type="text" [(ngModel)]="data.description" name="description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YY" pickerFormat="DD MMMM YYYY" [(ngModel)]="data.date" name="date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Time</ion-label>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="data.time" name="time"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button full round>Add Notification</button>
+    </div>
+  </form>
+        
     <p><button ion-button (click)="set()" style="color:#030c0b"  class="btn2" big round icon-start>Old</button></p>
 </ion-content>
