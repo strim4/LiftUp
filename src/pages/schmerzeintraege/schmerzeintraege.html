@@ -13,12 +13,12 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content style="background-color: #f0f0df"  padding>
   <h2>Wählen Sie den gewünschten Tag:</h2>
   <ion-icon name="calendar" class="large"><ion-datetime   displayFormat="DD-MM-YYYY" id="tdate" [(ngModel)]="tdate ">
  </ion-datetime></ion-icon>
  
- <ion-item>
+ <ion-item style="background-color: #f0f0df" >
  <p><button ion-button (click)="showFilterDate(tdate)" style="color:#030c0b"  class="btn2" big round icon-start>Einträge nach Datum Anzeigen</button></p>
  <p><button ion-button (click)="showAll()" style="color:#030c0b"  class="btn2" big round icon-start>Alle Einträge Anzeigen</button></p>
  </ion-item>
@@ -28,12 +28,12 @@
  Liste der gefilterten Notizen
  --> 
  
- <ion-list reorder="true">
+ <ion-list style="background-color: #f0f0df"  reorder="true">
    <p>   </p>
      <h2 >Notizen </h2>
      <ion-item-sliding *ngFor="let note of filteredNoteList | async " >
-       <ion-item>
-         <ion-card>
+       <ion-item style="background-color: #f0f0df" >
+         <ion-card style="background-color: #cee4a3">
                <ion-card-content>
                  
                  <b>Tag des Eintrags</b>
@@ -52,12 +52,12 @@
  Liste der gefilterten Schmerzlevel
  --> 
  
- <ion-list reorder="true">
+ <ion-list style="background-color: #f0f0df"  reorder="true">
   <p>   </p>
     <h2 >Schmerzlevel </h2>
     <ion-item-sliding *ngFor="let pain of filteredPainList | async " >
-      <ion-item>
-        <ion-card>
+      <ion-item style="background-color: #f0f0df" >
+        <ion-card style="background-color: #cee4a3">
               <ion-card-content>
                 
                 <b>Tag des Eintrags</b>
@@ -76,15 +76,15 @@
 
 <div   [hidden]="shouldHideAll" >
     <!--
- Liste der aller Notizen
+ Liste  aller Notizen
  --> 
  
- <ion-list reorder="true">
+ <ion-list style="background-color: #f0f0df" reorder="true">
     <p>   </p>
       <h2 >Notizen </h2>
-      <ion-item-sliding *ngFor="let note of allNoteList | async " >
-        <ion-item>
-          <ion-card>
+      <ion-item-sliding style="background-color: #f0f0df"  *ngFor="let note of allNoteList | async " >
+        <ion-item style="background-color: #f0f0df" >
+          <ion-card style="background-color: #cee4a3">
                 <ion-card-content>
                   
                   <b>Tag des Eintrags</b>
@@ -101,12 +101,12 @@
 
   <!-- Liste aller Schmerzlevel -->
   
-  <ion-list reorder="true">
+  <ion-list style="background-color: #f0f0df"  reorder="true">
       <p>   </p>
       <h2 >Schmerzlevel</h2>
-    <ion-item-sliding *ngFor="let pain of allPainList | async " >
-      <ion-item>
-        <ion-card>
+    <ion-item-sliding style="background-color: #f0f0df"  *ngFor="let pain of allPainList | async " >
+      <ion-item style="background-color: #f0f0df" >
+        <ion-card style="background-color: #cee4a3">
               <ion-card-content>
                 
                 <b>Tag des Eintrags</b>

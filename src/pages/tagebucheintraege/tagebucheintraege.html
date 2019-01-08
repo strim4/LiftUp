@@ -14,27 +14,27 @@
 
 
 
-<ion-content padding>
+<ion-content style="background-color: #f0f0df"  padding>
  <h2>Wählen Sie den gewünschten Tag:</h2>
  <ion-icon name="calendar" class="large"><ion-datetime   displayFormat="DD-MM-YYYY" id="tdate" [(ngModel)]="tdate ">
 </ion-datetime></ion-icon>
 
-<ion-item>
+
 <p><button ion-button (click)="showFilterDate(tdate)" style="color:#030c0b"  class="btn2" big round icon-start>Einträge nach Datum Anzeigen</button></p>
 <p><button ion-button (click)="showAll()" style="color:#030c0b"  class="btn2" big round icon-start>Alle Einträge Anzeigen</button></p>
-</ion-item>
+
 <div [hidden]="shouldHide">
 
      <!--
 Liste der gefilterten Medis
 --> 
 
-<ion-list reorder="true">
+<ion-list style="background-color: #f0f0df"  reorder="true">
   <p>   </p>
     <h2 >Medikamente </h2>
-    <ion-item-sliding *ngFor="let medi of filteredTextMediList | async " >
-      <ion-item>
-        <ion-card>
+    <ion-item-sliding style="background-color: #f0f0df" *ngFor="let medi of filteredTextMediList | async " >
+      <ion-item style="background-color: #f0f0df">
+        <ion-card style="background-color: #cee4a3">
               <ion-card-content>
                 
                 <b>Tag der Einnahme</b>
@@ -61,10 +61,10 @@ Liste der gefilterten Medis
 Liste der gefilterten Energielevel
 -->
 <h2 >Energielevel</h2>
-<ion-list reorder="true">
-    <ion-item-sliding *ngFor="let energy of filteredEnergyList | async " >
-      <ion-item>
-        <ion-card>
+<ion-list style="background-color: #f0f0df" reorder="true">
+    <ion-item-sliding style="background-color: #f0f0df" *ngFor="let energy of filteredEnergyList | async " >
+      <ion-item style="background-color: #f0f0df">
+        <ion-card style="background-color: #cee4a3">
               <ion-card-content>
                 
                   <b>Energielevel:</b> <p>{{energy.enlev}} von 10</p>
@@ -87,10 +87,10 @@ Liste der gefilterten Aktivitätslevel
 -->
 
 <h2 >Aktivitätslevel</h2>
-<ion-list reorder="true">
-    <ion-item-sliding *ngFor="let actlev of filteredActlevelList  | async " >
-      <ion-item>
-        <ion-card>
+<ion-list style="background-color: #f0f0df" reorder="true">
+    <ion-item-sliding style="background-color: #f0f0df" *ngFor="let actlev of filteredActlevelList  | async " >
+      <ion-item style="background-color: #f0f0df">
+        <ion-card style="background-color: #cee4a3">
               <ion-card-content>
                 
                   <b>Aktivitätslevel:</b> <p>{{actlev.actlev}} von 10</p>
@@ -112,10 +112,10 @@ Liste der gefilterten Aktivitäten
 -->
 
 <h2 >Tagesbeschäftigungen</h2>
-<ion-list reorder="true">
-    <ion-item-sliding *ngFor="let act of filteredselActList  | async " >
-      <ion-item>
-        <ion-card>
+<ion-list style="background-color: #f0f0df" reorder="true">
+    <ion-item-sliding style="background-color: #f0f0df" *ngFor="let act of filteredselActList  | async " >
+      <ion-item style="background-color: #f0f0df">
+        <ion-card style="background-color: #cee4a3">
               <ion-card-content>
                 
                   <b>Aktivität:</b> <p>{{act.title}}</p>
@@ -134,12 +134,12 @@ Liste der gefilterten Aktivitäten
  <div   [hidden]="shouldHideAll" >
 <!-- Liste aller Medis -->
 
-<ion-list reorder="true">
+<ion-list style="background-color: #f0f0df" reorder="true">
     <p>   </p>
     <h2 >Medikamente</h2>
-  <ion-item-sliding *ngFor="let medi of allmediList | async " >
-    <ion-item>
-      <ion-card>
+  <ion-item-sliding style="background-color: #f0f0df" *ngFor="let medi of allmediList | async " >
+    <ion-item style="background-color: #f0f0df">
+      <ion-card style="background-color: #cee4a3">
             <ion-card-content>
               
               <b>Tag der Einnahme</b>
@@ -161,11 +161,11 @@ Liste aller Energielevel
 -->  
 
 <h2 >Energielevel</h2>
-<ion-list reorder="true">
+<ion-list style="background-color: #f0f0df" reorder="true">
     
-  <ion-item-sliding *ngFor="let energy of allenergyList | async " >
-    <ion-item>
-      <ion-card>
+  <ion-item-sliding style="background-color: #f0f0df" *ngFor="let energy of allenergyList | async " >
+    <ion-item style="background-color: #f0f0df">
+      <ion-card style="background-color: #cee4a3">
             <ion-card-content>
               
                 <b>Energielevel:</b> <p>{{energy.enlev}} von 10</p>
@@ -185,11 +185,11 @@ Liste aller Aktivitätslevel
 -->  
 
 <h2 >Aktivitätslevel</h2>
-<ion-list reorder="true">
+<ion-list style="background-color: #f0f0df" reorder="true">
     
-  <ion-item-sliding *ngFor="let actlev of allactlevList | async " >
-    <ion-item>
-      <ion-card>
+  <ion-item-sliding style="background-color: #f0f0df" *ngFor="let actlev of allactlevList | async " >
+    <ion-item style="background-color: #f0f0df">
+      <ion-card style="background-color: #cee4a3">
             <ion-card-content>
               
                 <b>Aktivitätslevel:</b> <p>{{actlev.actlev}} von 10</p>
@@ -208,11 +208,11 @@ Liste aller Aktivitätslevel
 Liste aller Tagesaktivitäten
 -->  
 <h2 >Tagesaktivitäten</h2>
-<ion-list reorder="true">
+<ion-list style="background-color: #f0f0df" reorder="true">
     
-  <ion-item-sliding *ngFor="let selact of allselActList | async " >
-    <ion-item>
-      <ion-card>
+  <ion-item-sliding style="background-color: #f0f0df" *ngFor="let selact of allselActList | async " >
+    <ion-item style="background-color: #f0f0df">
+      <ion-card style="background-color: #cee4a3">
             <ion-card-content>
                 <b>Aktivität:</b> <p>{{selact.title}}</p>
    

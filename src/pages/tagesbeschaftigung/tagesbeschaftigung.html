@@ -14,20 +14,20 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content style="background-color: #f0f0df"  padding>
     <h1> Welche Aktivitäten hast du unternommen?</h1>
 
-    <ion-item>
+    <ion-item style="background-color: #f0f0df" > 
         <ion-label color="secondary">Tag der Aktivität:</ion-label>
         <ion-input type="date" placeholder="09.12.2018" clearInput="true" [(ngModel)]="adate"></ion-input>
       </ion-item>
  <!--
  Checkboxliste der hinterlegten Tagesaktivitäten
 -->
-     <ion-list>
+     <ion-list style="background-color: #f0f0df" >
     
  
-        <ion-item *ngFor="let act of actList | async "  >
+        <ion-item style="background-color: #f0f0df"  *ngFor="let act of actList | async "  >
             
         
          

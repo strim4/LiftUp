@@ -13,16 +13,16 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content style="background-color: #f0f0df"   padding>
     <h1> Wie aktiv warst du heute?</h1>
-    <ion-img [width]="190" [height]="190" src="../../assets/imgs/activ.jpg" class="img"></ion-img>
-      <ion-item  >
+    <ion-img [width]="190" [height]="190" src="../../assets/imgs/activv.png" class="img"></ion-img>
+      <ion-item  style="background-color: #f0f0df" >
           <ion-range min="0" max="10" step="1" pin="true" snaps="true" [(ngModel)]="actlev.actlev" color="secondary">
             <ion-label range-left>0</ion-label>
             <ion-label range-right>10</ion-label>
           </ion-range>
         </ion-item >
-        <ion-item>
+        <ion-item style="background-color: #f0f0df"   >
           <ion-label color="secondary">Tag des Energielevels:</ion-label>
           <ion-input type="date" placeholder="12.12.2018" clearInput="true" [(ngModel)]="actlev.date"></ion-input>
         </ion-item>
