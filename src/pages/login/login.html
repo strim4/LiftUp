@@ -14,6 +14,8 @@
 
 
 <ion-content style="background-color: #f0f0df"  padding>
+    <ion-img [width]="150" [height]="172" src="../assets/imgs/LogoLiftUp.png" class="img"></ion-img>
+    <p></p>
   <!--
 Login Formular
 -->
@@ -40,7 +42,7 @@ Login Formular
         && loginForm.controls.password.touched">
         <p>Dein Passwort muss mehr als 6 Zeichen enthalten.</p>
         </ion-item>
-        <button ion-button block type="submit" [disabled]="!loginForm.valid">
+        <button ion-button block type="submit" [disabled]="!loginForm.valid" style="color:#030c0b" >
         Anmelden
         </button>
         </form>

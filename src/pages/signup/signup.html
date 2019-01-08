@@ -13,7 +13,9 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content style="background-color: #f0f0df" padding>
+    <ion-img [width]="150" [height]="172" src="../assets/imgs/LogoLiftUp.png" class="img"></ion-img>
+    <p></p>
   <!--
  Formular für die Registrierung
 -->
@@ -21,28 +23,28 @@
         <ion-item>
         <ion-label stacked>Email</ion-label>
         <ion-input formControlName="email" type="email"
-        placeholder="Your email address"
+        placeholder="Deine Emailadresse"
         [class.invalid]="!signupForm.controls.email.valid && blur">
         </ion-input>
         </ion-item>
         <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid
         && signupForm.controls.email.touched">
-        <p>Please enter a valid email.</p>
+        <p>Bitte eine gültige Emailadresse eingeben.</p>
         </ion-item>
         <ion-item>
-        <ion-label stacked>Password</ion-label>
+        <ion-label stacked>Passwort</ion-label>
         <ion-input formControlName="password" type="password"
-        placeholder="Your password"
+        placeholder="Dein Passwort"
         [class.invalid]="!signupForm.controls.password.valid && blur">
         </ion-input>
         </ion-item>
         <ion-item class="error-message"
         *ngIf="!signupForm.controls.password.valid &&
         signupForm.controls.password.touched">
-        <p>Your password needs more than 6 characters.</p>
+        <p>Dein Passwort muss länger als 6 Zeichen sein.</p>
         </ion-item>
-        <button ion-button block type="submit" [disabled]="!signupForm.valid">
-        Create an Account
+        <button ion-button block type="submit" [disabled]="!signupForm.valid" style="color:#030c0b" >
+        Account erstellen
         </button>
         </form>
 
