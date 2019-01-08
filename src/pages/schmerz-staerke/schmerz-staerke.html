@@ -22,11 +22,23 @@
         <ion-label range-right>10</ion-label>
       </ion-range>
     </ion-item >
+
+    <b>Tag des Eintrages auswählen:</b>
+    <p></p>
+  <ion-item style="background-color: #f0f0df" >
+       
+       <ion-img item-start [width]="50" [height]="50" src="../../assets/imgs/cal.png" class="img"></ion-img>
+       
+       
+   <ion-datetime item-content  displayFormat="DD-MM-YYYY"  [(ngModel)]="pain.date ">
+       
+   
+   </ion-datetime>
+   <p></p>
+   <p></p>
+ </ion-item>
     
-    <ion-item style="background-color: #f0f0df" > 
-      <ion-label color="secondary">Tag des Schmerzes:</ion-label>
-      <ion-input type="date" placeholder="12.12.2018" clearInput="true" [(ngModel)]="pain.date" ></ion-input>
-    </ion-item>
+    
     
    
     <ion-row>

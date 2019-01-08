@@ -17,10 +17,22 @@
 <ion-content style="background-color: #f0f0df"  padding>
     <h1> Welche Aktivitäten hast du unternommen?</h1>
 
-    <ion-item style="background-color: #f0f0df" > 
-        <ion-label color="secondary">Tag der Aktivität:</ion-label>
-        <ion-input type="date" placeholder="09.12.2018" clearInput="true" [(ngModel)]="adate"></ion-input>
-      </ion-item>
+    
+
+      <b>Tag der Aktivitäten auswählen:</b>
+      <p></p>
+    <ion-item style="background-color: #f0f0df" >
+         
+         <ion-img item-start [width]="50" [height]="50" src="../../assets/imgs/cal.png" class="img"></ion-img>
+         
+         
+     <ion-datetime item-content  displayFormat="DD-MM-YYYY"  [(ngModel)]="adate">
+         
+     
+     </ion-datetime>
+     <p></p>
+     <p></p>
+   </ion-item>
  <!--
  Checkboxliste der hinterlegten Tagesaktivitäten
 -->

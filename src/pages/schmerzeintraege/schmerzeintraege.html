@@ -14,12 +14,26 @@
 
 
 <ion-content style="background-color: #f0f0df"  padding>
-  <h2>Wählen Sie den gewünschten Tag:</h2>
-  <ion-icon name="calendar" class="large"><ion-datetime   displayFormat="DD-MM-YYYY" id="tdate" [(ngModel)]="tdate ">
- </ion-datetime></ion-icon>
+
+
+ <h2>Wählen Sie den gewünschten Tag:</h2>
+            <p></p>
+          <ion-item style="background-color: #f0f0df" >
+               
+               <ion-img item-start [width]="50" [height]="50" src="../../assets/imgs/cal.png" class="img"></ion-img>
+               
+               
+           <ion-datetime item-content  displayFormat="DD-MM-YYYY"  [(ngModel)]="tdate">
+               
+           
+           </ion-datetime>
+           <p></p>
+           <p></p>
+         </ion-item>
  
  <ion-item style="background-color: #f0f0df" >
  <p><button ion-button (click)="showFilterDate(tdate)" style="color:#030c0b"  class="btn2" big round icon-start>Einträge nach Datum Anzeigen</button></p>
+ <b>Oder lass dir alle Einträge anzeigen:</b>
  <p><button ion-button (click)="showAll()" style="color:#030c0b"  class="btn2" big round icon-start>Alle Einträge Anzeigen</button></p>
  </ion-item>
  <div [hidden]="shouldHide">

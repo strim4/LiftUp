@@ -28,10 +28,22 @@
             <ion-label color="secondary">Menge:</ion-label>
             <ion-input type="text" placeholder="1 Tablette" clearInput="true" [(ngModel)]="medi.menge"></ion-input>
           </ion-item>
+         
+          <p></p>
+            <b>Tag der Einnahme auswählen:</b>
+            <p></p>
           <ion-item style="background-color: #f0f0df" >
-              <ion-label color="secondary">Tag der Einnahme:</ion-label>
-              <ion-input type="date" placeholder="1 Tablette" clearInput="true" [(ngModel)]="medi.date"></ion-input>
-            </ion-item>
+               
+               <ion-img item-start [width]="50" [height]="50" src="../../assets/imgs/cal.png" class="img"></ion-img>
+               
+               
+           <ion-datetime item-content  displayFormat="DD-MM-YYYY"  [(ngModel)]="medi.date ">
+               
+           
+           </ion-datetime>
+           <p></p>
+           <p></p>
+         </ion-item>
 
           <ion-row>
               <ion-col width-50 style="text-align: center">
