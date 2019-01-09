@@ -138,6 +138,15 @@ export class SensorverbindenPage {
 this.firebaseProvider.addSteps(this.steps);
    this.presentAlert();
   }
+  
+    btnClickedInfo(){
+    let alert = this.alertCtrl.create({
+      title: 'Information',
+      message: 'Damit der Schrittzähler weiterläuft, auch wenn du LiftUp geschlossen hast, muss der Hintergrundmodus aktiviert werden.',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 }
 
 
