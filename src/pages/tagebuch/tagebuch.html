@@ -18,7 +18,19 @@
 
 <ion-content style="background-color: #f0f0df" padding>
   
-    <h1>Einträge erfassen: </h1>
+    
+    <ion-grid>
+        <ion-row>
+          <ion-col col-9>
+            <h1>Einträge erfassen: </h1>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="secondary" outline (click)="btnClickedInfo()" icon-only>
+                <ion-icon name="information-circle"></ion-icon>
+              </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     <button ion-button class="btn" style="color:#030c0b" [navPush]="tagesbeschaftigungPage" large round >  Tagesbeschäftigung</button><br><br>
     <button ion-button class="btn" style="color:#030c0b" [navPush]="energiePage" large round >Energie</button><br><br>
     <button ion-button class="btn" style="color:#030c0b"  [navPush]="aktivitaetslevelPage" large round>Aktivitätslevel</button><br><br>
