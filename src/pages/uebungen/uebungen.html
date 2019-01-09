@@ -14,7 +14,19 @@
 
 <ion-content style="background-color: #f0f0df" padding>
   <h1>Mehr Bewegung, weniger Schmerzen</h1>
-  <p>Jeder braucht am Tag mindestens eine gute halbe Stunde aktivie Bewegung.</p>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-9>
+        <p>Jeder braucht am Tag mindestens eine gute halbe Stunde aktivie Bewegung.</p>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="secondary" outline (click)="btnClickedInfo()" icon-only>
+            <ion-icon name="information-circle"></ion-icon>
+          </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <ion-list>
     <ion-item>
       <ion-thumbnail item-start>
