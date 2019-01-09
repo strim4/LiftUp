@@ -17,15 +17,18 @@
   
   
   <ion-content style="background-color: #f0f0df"  padding>
-    <h3> Hier findest du grafische Auswertungen zu deinen Tagebucheinträgen und der Schmerzdokumentation.</h3>
-    
-    <ion-card >
-        
-       
-        <ion-card-content>
-            <p>Damit die Verlaufsdiagramme angezeigt werden, müssen entsprechende Einträge im Tagebuch und in der Schmerzdokumentation erfasst werden.</p>
-        </ion-card-content>
-      </ion-card>
+    <ion-grid>
+        <ion-row>
+          <ion-col col-9>
+              <h4> Hier findest du die grafischen Auswertungen zu deinen Tagebucheinträgen und der Schmerzdokumentation.</h4>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="secondary" outline (click)="btnClickedInfo()" icon-only>
+                <ion-icon name="information-circle"></ion-icon>
+              </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     <button ion-button (click)="show()" style="color:#030c0b"  class="btn2" big round icon-start>Auswertungen generieren</button>
     <div [hidden]="shouldHide">   
     <ion-card>
