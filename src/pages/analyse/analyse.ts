@@ -4,7 +4,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { Energy } from '../../model/energy/energy.model';
 import { Actlev } from '../../model/actlev/actlev.model';
 import { Pain } from '../../model/pain/pain.model';
-
+import { AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { ViewChild } from '@angular/core';
 
@@ -72,7 +72,7 @@ export class AnalysePage {
   userId: any;
   
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, public afd: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth, public afd: AngularFireDatabase, public alertCtrl: AlertController) {
 
     this.afAuth.authState.subscribe(auth =>{
       this.userId = auth.uid;
@@ -101,6 +101,15 @@ export class AnalysePage {
    
   }
 
+    btnClickedInfo(){
+    let alert = this.alertCtrl.create({
+      title: 'Information',
+      message: 'Damit die Verlaufsdiagramme angezeigt werden, müssen entsprechende Einträge im Tagebuch und in der Schmerzdokumentation erfasst werden.',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+  
   show(){
     this.shouldHide = false;
     this.acdate = [];
