@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { AlertController } from 'ionic-angular';
 import { UebArbeitsplatzPage } from '../ueb-arbeitsplatz/ueb-arbeitsplatz';
 import { LockerungsUebPage } from '../lockerungs-ueb/lockerungs-ueb';
 import { UebObRueckenPage } from '../ueb-ob-ruecken/ueb-ob-ruecken';
@@ -27,11 +27,19 @@ export class UebungenPage {
   uebUntRueckenPage = UebUntRueckenPage;
   uebGanzRueckenPage = UebGanzRueckenPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UebungenPage');
   }
 
+  btnClickedInfo(){
+    let alert = this.alertCtrl.create({
+      title: 'Information',
+      message: 'Je nach Situation erhalten Sie hier eine Auswahl von Übungen mit einer Videoanleitung.',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 }
