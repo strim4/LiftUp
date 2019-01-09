@@ -45,10 +45,21 @@
     <ion-col>
     </ion-col>
   </ion-row>
-  <ion-item style="background-color: #f0f0df" >
-      <ion-label color="secondary">Tag der Schritte:</ion-label>
-      <ion-input type="date" clearInput="true" [(ngModel)]="tdate"></ion-input>
+  <b>Tag des Eintrages auswählen:</b>
+       <p></p>
+     <ion-item style="background-color: #f0f0df" >
+          
+          <ion-img item-start [width]="50" [height]="50" src="../../assets/imgs/cal.png" class="img"></ion-img>
+          
+          
+      <ion-datetime item-content  displayFormat="DD-MM-YYYY"  [(ngModel)]="tdate ">
+          
+      
+      </ion-datetime>
+      <p></p>
+      <p></p>
     </ion-item>
+  
   <ion-row>
       <ion-col width-50 style="text-align: center">
     <button ion-button (click)="addSteps()" class="btn2" style="color:#030c0b" big round icon-start>

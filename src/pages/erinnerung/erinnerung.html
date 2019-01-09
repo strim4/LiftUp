@@ -24,24 +24,28 @@
     <form (ngSubmit)="submit()">
     <ion-list>
       <ion-item>
-        <ion-label floating>Title</ion-label>
-        <ion-input type="text" [(ngModel)]="data.title" name="title"></ion-input>
+        <ion-label >Titel:</ion-label>
+        <ion-input type="text" [(ngModel)]="data.title" name="title"   placeholder="Meine Benachrichtigung"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Description</ion-label>
-        <ion-input type="text" [(ngModel)]="data.description" name="description"></ion-input>
+        <ion-label >Beschreibung:</ion-label>
+        <ion-input type="text" [(ngModel)]="data.description" name="description"   placeholder="Inhalt der Erinnerung"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Date</ion-label>
-        <ion-datetime displayFormat="DD/MM/YY" pickerFormat="DD MMMM YYYY" [(ngModel)]="data.date" name="date"></ion-datetime>
+        <ion-label >Stunde:</ion-label>
+        <ion-input type="number" [(ngModel)]="thour" required="true" clearInput=true min="0" max="24" [ngModelOptions]="{standalone: true}" placeholder="15"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Time</ion-label>
-        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="data.time" name="time"></ion-datetime>
+        <ion-label >Minute:</ion-label>
+        <ion-input type="number" [(ngModel)]="tminute" required="true" clearInput=true min="0" max="60" [ngModelOptions]="{standalone: true}" placeholder="35"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label >Anzahl Wiederholungen:</ion-label>
+        <ion-input type="number" [(ngModel)]="tcount" required="true" clearInput=true min="0" max="20" [ngModelOptions]="{standalone: true}" placeholder="5"></ion-input>
       </ion-item>
     </ion-list>
     <div padding>
-      <button ion-button full round>Add Notification</button>
+      <button ion-button full round style="color:#030c0b" >Erinnerung erstellen</button>
     </div>
   </form>
         

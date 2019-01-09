@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util';
+import { database } from 'firebase';
 
 declare let cordova: any;
 /**
@@ -21,7 +22,9 @@ declare let cordova: any;
 })
 export class ErinnerungPage {
   data = { title:'', description:'', date:'', time:'' };
-  
+  thour: number;
+  tminute: number;
+  tcount: number;
  
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private localNotifications: LocalNotifications, public alertCtrl: AlertController) {
   
@@ -34,15 +37,16 @@ export class ErinnerungPage {
     var date = new Date(this.data.date+" "+this.data.time);
     console.log(date);
     this.localNotifications.schedule({
-       text: 'Timed ILocalNotification',
+      title: this.data.title,
+       text: this.data.description,
        //trigger: {at: new Date(date)},
-       trigger: { every: { hour: 21, minute: 26, second: 15 }, count: 1 },
+       trigger: { every: { hour: this.thour, minute: this.tminute, second: 1 }, count: this.tcount },
        led: 'FF0000',
        sound: this.setSound(),
     });
     let alert = this.alertCtrl.create({
       title: 'Erinnerung!',
-      subTitle: 'Die Erinnerung wurde erfolgreich hinzugefügt '+date,
+      subTitle: 'Die Erinnerung wurde erfolgreich hinzugefügt.',
       buttons: ['OK']
     });
     alert.present();
