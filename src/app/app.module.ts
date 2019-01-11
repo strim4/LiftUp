@@ -30,6 +30,10 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from './credentials';
 
+
+import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
+
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { DatePicker } from '@ionic-native/date-picker';
@@ -191,7 +195,9 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     MediProvider,
     FirebaseProvider,
     BackgroundMode,
-    Pedometer
+    Pedometer,
+    File,
+    FileOpener
   ]
 })
 export class AppModule {}

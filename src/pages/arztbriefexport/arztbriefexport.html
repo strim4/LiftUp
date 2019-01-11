@@ -17,6 +17,24 @@
   
   
   <ion-content style="background-color: #f0f0df"  padding>
+    <ion-item>
+      <ion-label stacked>Vorname Name:</ion-label>
+      <ion-input [(ngModel)]="letterObj.from" placeholder="Dein Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Name des behandelnden Arztes</ion-label>
+      <ion-input [(ngModel)]="letterObj.to" placeholder="Name deines Arztes"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Kommentar:</ion-label>
+      <ion-textarea [(ngModel)]="letterObj.text" rows="10" placeholder="Schreiben..."></ion-textarea>
+    </ion-item>
+   
+    <button ion-button full (click)="createPdf()">PDF erstellen</button>
+    <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">PDF herunterladen</button>
+
+     
+   
   
   </ion-content>
   
