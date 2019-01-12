@@ -17,6 +17,19 @@
   
   
   <ion-content style="background-color: #f0f0df"  padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-9>
+          <h2>LiftUp Daten als PDF exportieren</h2>
+        </ion-col>
+        <ion-col>
+          <button ion-button color="secondary" outline (click)="btnClickedInfo()" icon-only>
+              <ion-icon name="information-circle"></ion-icon>
+            </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+                <p></p>
     <ion-item>
       <ion-label stacked>Vorname Name:</ion-label>
       <ion-input [(ngModel)]="letterObj.from" placeholder="Dein Name"></ion-input>

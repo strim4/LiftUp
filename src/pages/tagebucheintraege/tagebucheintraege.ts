@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
+import { AlertController } from 'ionic-angular';
 
 import {FirebaseListObservable} from 'angularfire2/database-deprecated'
 
@@ -60,7 +61,7 @@ shouldHideAll: boolean;
   userId: string;
 
   
-  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, public afd: AngularFireDatabase,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private afAuth: AngularFireAuth, public afd: AngularFireDatabase,private firebaseProvider: FirebaseProvider, public navParams: NavParams) {
     
     
     this.afAuth.authState.subscribe(auth =>{
@@ -131,6 +132,15 @@ this.shouldHide = true;
 
 
  }
+
+ btnClickedInfo(){
+  let alert = this.alertCtrl.create({
+    title: 'Information',
+    message: 'Damit Tagebucheinträge angezeigt werden, müssen sie vorgängig erfasst werden.',
+    buttons: ['OK']
+  });
+  alert.present();
+}
 
  
   ionViewDidLoad() {

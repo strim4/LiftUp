@@ -17,7 +17,19 @@
 <ion-content style="background-color: #f0f0df"  padding>
 
 
-<h2>Wählen Sie den gewünschten Tag:</h2>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-9>
+      <h2>Wählen Sie den gewünschten Tag:</h2>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="secondary" outline (click)="btnClickedInfo()" icon-only>
+          <ion-icon name="information-circle"></ion-icon>
+        </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
             <p></p>
           <ion-item style="background-color: #f0f0df" >
                

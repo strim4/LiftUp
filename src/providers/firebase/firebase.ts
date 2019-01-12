@@ -40,6 +40,7 @@ export class FirebaseProvider {
   private painListRef;
   private noteListRef;
   private stepsListRef;
+  private countListRef;
  
   //Generelle REferenzen
   /*
@@ -75,6 +76,7 @@ export class FirebaseProvider {
     this.painListRef = this.afd.list(`/pain-list/${this.userId}`);
     this.noteListRef = this.afd.list(`/note-list/${this.userId}`);
     this.stepsListRef = this.afd.list(`/steps-list/${this.userId}`);
+    this.countListRef = this.afd.list(`/count-list/${this.userId}`);
       
     });
 
@@ -167,4 +169,10 @@ removeMedication(medi: Medi) {
   removeMedi(id){
     this.afd.list('/medis/').remove(id);
   }
+
+  //Punkte Zähler
+count() {
+  return this.countListRef + 1;
+
+}
 }

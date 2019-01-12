@@ -18,36 +18,12 @@
 
 <ion-content style="background-color: #f0f0df"  padding>
   <h3>Ein Körper braucht bewegung!</h3>
-  <p> Damit du nicht vergisst dich zu bewegen, kannst du dir hier Erinnerungen erstellen, welche von LiftUp als Pushnachricht versendet werden.</p>
-    
+  <p> Damit du nicht vergisst dich zu bewegen, kannst du dir hier Erinnerungen einstellen, die von LiftUp als Pushnachricht versendet werden.</p>
+   <h3>Erinnerungen einstellen:</h3> 
+   <button ion-button class="btn" style="color:#030c0b" (click)="drm()" large round >Täglich am Morgen</button><br><br>
+   <button ion-button class="btn" style="color:#030c0b" (click)="dra()" large round >Täglich am Nachmittag</button><br><br>
+   <button ion-button class="btn" style="color:#030c0b" (click)="hra()"  large round>Alle 2 Stunden</button><br><br>
+   <button ion-button class="btn" style="color:danger" (click)="cancle()"  large round>Erinnerungen stoppen</button>
 
-    <form (ngSubmit)="submit()">
-    <ion-list>
-      <ion-item>
-        <ion-label >Titel:</ion-label>
-        <ion-input type="text" [(ngModel)]="data.title" name="title"   placeholder="Meine Benachrichtigung"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label >Beschreibung:</ion-label>
-        <ion-input type="text" [(ngModel)]="data.description" name="description"   placeholder="Inhalt der Erinnerung"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label >Stunde:</ion-label>
-        <ion-input type="number" [(ngModel)]="thour" required="true" clearInput=true min="0" max="24" [ngModelOptions]="{standalone: true}" placeholder="15"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label >Minute:</ion-label>
-        <ion-input type="number" [(ngModel)]="tminute" required="true" clearInput=true min="0" max="60" [ngModelOptions]="{standalone: true}" placeholder="35"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label >Anzahl Wiederholungen:</ion-label>
-        <ion-input type="number" [(ngModel)]="tcount" required="true" clearInput=true min="0" max="20" [ngModelOptions]="{standalone: true}" placeholder="5"></ion-input>
-      </ion-item>
-    </ion-list>
-    <div padding>
-      <button ion-button full round style="color:#030c0b" >Erinnerung erstellen</button>
-    </div>
-  </form>
-        
-    <p><button ion-button (click)="set()" style="color:#030c0b"  class="btn2" big round icon-start>Old</button></p>
+    
 </ion-content>

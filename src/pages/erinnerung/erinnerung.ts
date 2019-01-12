@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Platform } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DatePicker } from '@ionic-native/date-picker';
-import { LocalNotifications } from '@ionic-native/local-notifications';
-import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util';
-import { database } from 'firebase';
 
-declare let cordova: any;
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
+
+
 /**
  * Generated class for the ErinnerungPage page.
  *
@@ -21,67 +19,96 @@ declare let cordova: any;
   templateUrl: 'erinnerung.html',
 })
 export class ErinnerungPage {
-  data = { title:'', description:'', date:'', time:'' };
-  thour: number;
-  tminute: number;
-  tcount: number;
+  
  
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, private localNotifications: LocalNotifications, public alertCtrl: AlertController) {
   
   }
 
 
-
-  submit() {
-    console.log(this.data);
-    var date = new Date(this.data.date+" "+this.data.time);
-    console.log(date);
+// Daily Reminder Morning
+  drm() {
+    
+    
+   
     this.localNotifications.schedule({
-      title: this.data.title,
-       text: this.data.description,
+      title: "Let's move",
+       text: "Hast du dich heute schon genügend bewegt? Wenn nicht, dann ist es jetzt an der Zeit! Be active ;)",
        //trigger: {at: new Date(date)},
-       trigger: { every: { hour: this.thour, minute: this.tminute, second: 1 }, count: this.tcount },
+       trigger: { every: { hour: 10, minute: 0, second: 1 }, count: 30 },
        led: 'FF0000',
-       sound: this.setSound(),
+       sound: null,
     });
     let alert = this.alertCtrl.create({
       title: 'Erinnerung!',
-      subTitle: 'Die Erinnerung wurde erfolgreich hinzugefügt.',
+      subTitle: 'Die Erinnerung wurde erfolgreich hinzugefügt. Sie wird jeweils am Morgen um 10:00 Uhr ausgelöst',
       buttons: ['OK']
     });
     alert.present();
-    this.data = { title:'', description:'', date:'', time:'' };
+ 
   }
 
-  setSound() {
-    if (this.platform.is('android')) {
-      return 'file://assets/sounds/Rooster.mp3'
-    } else {
-      return 'file://assets/sounds/Rooster.caf'
-    }
+  //Daily Reminder Afternoon
+  dra() {
+    
+    
+   
+    this.localNotifications.schedule({
+      title: "Let's move",
+       text: "Hast du dich heute schon genügend bewegt? Wenn nicht, dann ist es jetzt an der Zeit! Be active ;)",
+       //trigger: {at: new Date(date)},
+       trigger: { every: { hour: 15, minute: 0, second: 1 }, count: 30 },
+       led: 'FF0000',
+       sound: null,
+    });
+    let alert = this.alertCtrl.create({
+      title: 'Erinnerung!',
+      subTitle: 'Die Erinnerung wurde erfolgreich hinzugefügt. Sie wird jeweils am Nachmittag um 15:00 Uhr ausgelöst',
+      buttons: ['OK']
+    });
+    alert.present();
+ 
   }
+
+   //Erinnerung alle 2 Stunden
+   hra() {
+    
+    
+   
+    this.localNotifications.schedule({
+      title: "Let's move",
+       text: "Hast du dich heute schon genügend bewegt? Wenn nicht, dann ist es jetzt an der Zeit! Be active ;)",
+       trigger: {every: {hour: 2}},
+       //trigger: {at: new Date(date)},
+     
+     
+       led: 'FF0000',
+       sound: null,
+    });
+    let alert = this.alertCtrl.create({
+      title: 'Erinnerung!',
+      subTitle: 'Die Erinnerung wurde erfolgreich hinzugefügt. Sie wird alle zwei Stunden ausgelöst',
+      buttons: ['OK']
+    });
+    alert.present();
+ 
+  }
+
+  // Erinnerungen stoppen
+  cancle(){
+   
+    this.localNotifications.cancelAll();
+    let alert = this.alertCtrl.create({
+      title: 'Erinnerungen gestoppt!',
+      subTitle: 'LiftUp versendet nun keine Erinnerungen mehr!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
 
    
-ssubmit(){
-  
-  console.log(this.data);
-  var date = new Date(this.data.date+" "+this.data.time);
- 
- cordova.plugins.notification.local.schdule({
-    text: 'Delayed ILocalNotification',
-    //at: date,
-   trigger: {at: new Date(date)},
-    led: 'FF0000',
-    sound: this.setSound(),
- });
- let alert = this.alertCtrl.create({
-  title: 'Congratulation!',
-  subTitle: 'Notification setup successfully at '+date,
-  buttons: ['OK']
-});
-alert.present();
-this.data = { title:'', description:'', date:'', time:'' };
-}
+
 
 //Alte Methode
 set(){
