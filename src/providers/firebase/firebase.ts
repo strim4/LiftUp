@@ -26,6 +26,7 @@ import { User, AuthCredential } from '@firebase/auth-types';
 */
 @Injectable()
 export class FirebaseProvider {
+  points: number;
 
 
 
@@ -41,6 +42,7 @@ export class FirebaseProvider {
   private noteListRef;
   private stepsListRef;
   private countListRef;
+  private countObject;
  
   //Generelle REferenzen
   /*
@@ -55,6 +57,7 @@ export class FirebaseProvider {
 
   //private energyListRef = this.afd.list<Energy>('/energy-list');
   userId: any;
+
   
 
   constructor(public http: HttpClient, public afd: AngularFireDatabase, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
@@ -77,6 +80,8 @@ export class FirebaseProvider {
     this.noteListRef = this.afd.list(`/note-list/${this.userId}`);
     this.stepsListRef = this.afd.list(`/steps-list/${this.userId}`);
     this.countListRef = this.afd.list(`/count-list/${this.userId}`);
+    this.countObject = this.afd.object(`/count-list/${this.userId}`);
+   
       
     });
 
@@ -171,8 +176,22 @@ removeMedication(medi: Medi) {
   }
 
   //Punkte Zähler
-count() {
-  return this.countListRef + 1;
+count( ) {
 
+ 
+    this.countObject.valueChanges().subscribe((count) => {
+      var newUser = {
+        count: count + 1
+        };
+        this.countObject.update(newUser);
+
+     } );
+  
+     
+
+  
 }
+
+
+
 }

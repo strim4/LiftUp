@@ -44,7 +44,18 @@ export class EnergiePage {
   addEnergy(energy: Energy) {
    // this.mediListService.addMedication(medi);
    this.firebaseProvider.addEnergy(this.energy);
+
    this.presentAlert();
   }
+
+  count() {
+
+    
+   this.firebaseProvider.count();
+   
+    
+ 
+   
+   }
 
 }
