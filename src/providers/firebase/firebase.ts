@@ -44,7 +44,6 @@ export class FirebaseProvider {
   private countListRef;
   private countObject;
  
-  //Generelle REferenzen
   /*
   private mediListRef = this.afd.list<Medi>('medi-list');
   private actListRef = this.afd.list<Act>('act-list');
@@ -61,11 +60,7 @@ export class FirebaseProvider {
   
 
   constructor(public http: HttpClient, public afd: AngularFireDatabase, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
-    
-  /*  this.afAuth.authState.subscribe(user => {
-      if(user) this.userId = user.uid
-    })
-*/
+   //Generelle REferenzen
    this.afAuth.authState.subscribe(auth =>{
      this.userId = auth.uid;
     
@@ -175,22 +170,7 @@ removeMedication(medi: Medi) {
     this.afd.list('/medis/').remove(id);
   }
 
-  //Punkte Zähler
-count( ) {
 
- 
-    this.countObject.valueChanges().subscribe((count) => {
-      var newUser = {
-        count: count + 1
-        };
-        this.countObject.update(newUser);
-
-     } );
-  
-     
-
-  
-}
 
 
 
