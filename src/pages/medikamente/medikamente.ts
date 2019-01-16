@@ -54,5 +54,14 @@ export class MedikamentePage {
    this.firebaseProvider.addMedication(this.medi);
    this.presentAlert();
   }
+  //Funktion für Info-Button
+    btnClickedInfo(){
+    let alert = this.alertCtrl.create({
+      title: 'Information',
+      message: 'Hier können Sie die eingenommenen Medikamente eingeben. Die Dosierung gilt für die eingenommene Einheit. D.h. eine Tablette Aspirin à 500mg. Wenn Sie dann zwei Tabletten genommen haben, haben Sie im Total 1g Aspirin eingenommen.',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
 }
