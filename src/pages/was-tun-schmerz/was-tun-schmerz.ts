@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SchmerzMediPage } from '../schmerz-medi/schmerz-medi';
 
 /**
  * Generated class for the WasTunSchmerzPage page.
@@ -14,6 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'was-tun-schmerz.html',
 })
 export class WasTunSchmerzPage {
+  schmerzMediPage = SchmerzMediPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
