@@ -48,14 +48,6 @@ export class EnergiePage {
    this.presentAlert();
   }
 
-  count() {
 
-    
-   this.firebaseProvider.count();
-   
-    
- 
-   
-   }
 
 }
