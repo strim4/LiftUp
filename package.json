@@ -36,7 +36,7 @@
     "@types/fusioncharts": "^3.11.5",
     "angular-highcharts": "^7.0.2",
     "angularfire2": "5.0.0-rc.12",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "com.lisaseacat.metawear": "0.0.2",
     "com.megster.cordova.ble": "^0.1.9",
     "cordova-android": "7.1.4",
